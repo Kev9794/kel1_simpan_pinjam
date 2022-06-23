@@ -23,56 +23,24 @@
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
-<<<<<<< HEAD
-
                     <form>
                       <center><p>Masukkan Username dan Password</p></center>
-
-=======
-    
-                    <form>
-                      <center><p>Masukkan Username dan Password</p></center>
-    
->>>>>>> 1ca448af9ad9e78359b01f89e2c8aa43e8fca998
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example11">Username</label>
                         <input type="email" id="form2Example11" class="form-control" placeholder="Enter Username" />
                       </div>
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 1ca448af9ad9e78359b01f89e2c8aa43e8fca998
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example22">Password</label>
                         <input type="password" id="form2Example22" class="form-control" placeholder="Enter Password"/>
                       </div>
-<<<<<<< HEAD
-
                       <div class="text-center pt-1 mb-5 pb-1">
                         <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mt-3" type="button">Login</button>
                       </div>
-
-=======
-    
-                      <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mt-3" type="button">Login</button>
-                      </div>
-    
->>>>>>> 1ca448af9ad9e78359b01f89e2c8aa43e8fca998
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Belom Punya Akun</p>
                         <button type="button" class="btn btn-outline-danger m-3">Buat Akun</button>
                       </div>
-<<<<<<< HEAD
-
                     </form>
-
-=======
-    
-                    </form>
-    
->>>>>>> 1ca448af9ad9e78359b01f89e2c8aa43e8fca998
                   </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -90,8 +58,8 @@
       </div>
     </section>
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
+
 </html>
->>>>>>> 1ca448af9ad9e78359b01f89e2c8aa43e8fca998
+

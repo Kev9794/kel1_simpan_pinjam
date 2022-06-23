@@ -42,3 +42,9 @@ Route::get('/contact', function () {
         "title" => "contact"
     ]);
 });
+
+Route::get('/login', function () {
+    return view('auth.login', [
+        "title" => "login"
+    ]);
+});
