@@ -13,42 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function ($id) {
-    return view('user.home');
+Route::get('/services', function () {
+    return view('user.services', [
+        "title" => "services"
+    ]);
 });
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('/login', function () {
-        return view('auth.login');
-    });
-
-    Route::get('/register', function () {
-        return view('auth.register');
-    });
+Route::get('/apply', function () {
+    return view('user.apply', [
+        "title" => "apply"
+    ]);
 });
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/about', function () {
-        return view('user.about', [
-            "title" => "about"
-        ]);
-    });
+Route::get('/home', function () {
+    return view('user.home', [
+        "title" => "home"
+    ]);
+});
 
-    Route::get('/apply', function () {
-        return view('user.services', [
-            "title" => "apply"
-        ]);
-    });
+Route::get('/about', function () {
+    return view('user.about', [
+        "title" => "about"
+    ]);
+});
 
-    Route::get('/services', function () {
-        return view('user.services', [
-            "title" => "services"
-        ]);
-    });
-
-    Route::get('/contact', function () {
-        return view('user.contact', [
-            "title" => "contact"
-        ]);
-    });
+Route::get('/contact', function () {
+    return view('user.contact', [
+        "title" => "contact"
+    ]);
 });
