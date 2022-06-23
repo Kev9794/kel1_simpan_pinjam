@@ -64,10 +64,10 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block" style="margin-right: 5px;">
-                                    <a href="#" class="btn header-btn">Login</a>
+                                    <a href="/login" class="btn header-btn">Login</a>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block">
-                                    <a href="#" class="btn header-btn">Register</a>
+                                    <a href="/register" class="btn header-btn">Register</a>
                                 </div>
                             </div>
                         </div>
