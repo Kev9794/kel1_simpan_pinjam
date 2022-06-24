@@ -54,3 +54,28 @@ Route::get('/register', function () {
         "title" => "register"
     ]);
 });
+
+Route::get('/anggota', function () {
+    return view('admin.anggota', [
+    ]);
+});
+
+Route::get('/angsuran', function () {
+    return view('admin.angsuran', [
+    ]);
+});
+
+Route::get('/peminjaman', function () {
+    return view('admin.peminjaman', [
+    ]);
+});
+
+Route::get('/pengambilan', function () {
+    return view('admin.pengambilan', [
+    ]);
+});
+
+Route::get('/simpanan', function () {
+    return view('admin.simpanan', [
+    ]);
+});
