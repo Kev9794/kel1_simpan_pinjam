@@ -56,26 +56,25 @@ Route::get('/register', function () {
 });
 
 Route::get('/anggota', function () {
-    return view('admin.anggota', [
-    ]);
+    return view('admin.anggota', []);
 });
 
 Route::get('/angsuran', function () {
-    return view('admin.angsuran', [
-    ]);
+    return view('admin.angsuran', []);
 });
 
 Route::get('/peminjaman', function () {
-    return view('admin.peminjaman', [
-    ]);
+    return view('admin.peminjaman', []);
 });
 
 Route::get('/pengambilan', function () {
-    return view('admin.pengambilan', [
-    ]);
+    return view('admin.pengambilan', []);
 });
 
 Route::get('/simpanan', function () {
-    return view('admin.simpanan', [
-    ]);
+    return view('admin.simpanan', []);
+});
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard', []);
 });

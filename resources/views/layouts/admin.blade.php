@@ -90,7 +90,7 @@
     <script src="{{ asset('dashmin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('dashmin/js/main.js') }}"></script>
 </body>
 
 </html>
