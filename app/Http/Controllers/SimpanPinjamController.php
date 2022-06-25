@@ -71,8 +71,9 @@ class SimpanPinjamController extends Controller
      */
     public function edit($id)
     {
+       
         $anggota = DB::table('anggota')->where('id',$id)->first();;
-        return view('anggota.edit')
+        return view('anggota.edit');
     }
 
     /**

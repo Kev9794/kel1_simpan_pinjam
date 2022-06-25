@@ -35,6 +35,7 @@ class CustomAuthController extends Controller
       
     public function customRegistration(Request $request)
     {  
+        
         $request->validate([
             'name' => 'required',
             'username' => 'required',
@@ -71,7 +72,8 @@ class CustomAuthController extends Controller
     public function signOut() {
         Session::flush();
         Auth::logout();
-  
+
         return Redirect('login');
+        
     }
 }
