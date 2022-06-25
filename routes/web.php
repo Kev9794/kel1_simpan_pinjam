@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,10 +12,18 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+
+Route::get('apply', [CustomAuthController::class, 'apply']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('register', [CustomAuthController::class, 'register'])->name('register');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
 
 Route::get('/services', function () {
-    return view('user.services', [
+    return view('user.services', 
+    [
         "title" => "services"
     ]);
 });
@@ -42,7 +51,7 @@ Route::get('/contact', function () {
         "title" => "contact"
     ]);
 });
-
+/*
 Route::get('/login', function () {
     return view('auth.login', [
         "title" => "login"
@@ -52,7 +61,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register', [
         "title" => "register"
-    ]);
+            ]);
 });
 
 Route::get('/anggota', function () {
@@ -78,3 +87,4 @@ Route::get('/simpanan', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard', []);
 });
+
