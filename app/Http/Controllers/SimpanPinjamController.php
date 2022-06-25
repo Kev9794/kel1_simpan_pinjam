@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Anggota;
 use Illuminate\Support\Facades\DB;
+
 class SimpanPinjamController extends Controller
 {
     /**
@@ -12,7 +14,7 @@ class SimpanPinjamController extends Controller
      */
     public function index()
     {
-      //
+      return view('user.apply');
     }
 
     /**
@@ -44,8 +46,9 @@ class SimpanPinjamController extends Controller
      */
     public function show($id)
     {
-        //
+        $anggota = Anggota::find($id);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
