@@ -26,9 +26,16 @@
                                     <!-- First Name -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* NAMA</label>
+                                            <label>* NAMA PEMINJAM</label>
                                             <input type="text" name="" placeholder="Enter name">
                                         </div>
+                                    </div>
+                                    <!-- Jumlah Pinjaman -->
+                                    <div class="col-lg-6">
+                                       <div class="single-form">
+                                            <label>* Jumlah Pinjaman</label>
+                                            <input type="number" name="" placeholder="Enter jumlah">
+                                       </div>
                                     </div>
                                     <!-- Radio -->
                                     <div class="col-lg-12">
@@ -49,27 +56,27 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Email Address</label>
-                                            <input type="email" name="" placeholder="Enter email">
+                                            <label>* Tanggal Pinjam</label>
+                                            <input type="date">
                                         </div>
                                     </div>
                                     <!-- Last Name -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* No Telp</label>
-                                            <input type="text" name="" placeholder="Enter Number">
+                                            <label>* Lama Pinjam / Bulan</label>
+                                            <input type="number" name="" placeholder="Enter Number">
                                         </div>
                                     </div>
                                     <!-- Nice Select -->
                                     <div class="col-lg-12">
                                         <div class="single-form">
-                                            <label>* Pekerjaan</label>
+                                            <label>* Jenis pinjaman</label>
                                             <div class="select-option mb-10">
                                                 <select name="select" id="select1">
                                                     <option value="">Pilih Kategori</option>
-                                                    <option value="">Mahasiswa</option>
-                                                    <option value="">PNS</option>
-                                                    <option value="">UMUM</option>
+                                                    <option value="">KTA</option>
+                                                    <option value="">KUR</option>
+                                                    <option value="">FLAT</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -77,23 +84,17 @@
                                     <!-- Street Address -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Alamat</label>
-                                            <input type="text" name="" placeholder="Enter Street Address">
+                                            <label>* Bunga Pinjaman</label>
+                                            <input type="number" name="" placeholder="Enter Bunga">
                                         </div>
                                     </div>
-                                    <!-- Jumlah Pinjaman -->
-                                    <div class="col-lg-6">
-                                       <div class="single-form">
-                                            <label>* Jumlah Pinjaman</label>
-                                            <input type="text" name="" placeholder="Enter name">
-                                       </div>
-                                    </div>
+                                    
                                     </div>
                                 </div>
                             </form>
                             <!-- End From -->
                             <!-- Form btn -->
-                            <a href="#" class="btn apply-btn mt-30">SUBMIT</a>
+                            <a href="#" class="btn apply-btn mt-30">AJUKAN</a>
                         </div>
                     </div>
                 </div>
