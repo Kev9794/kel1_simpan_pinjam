@@ -21,15 +21,27 @@ class CustomAuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect("apply")
-            ->with('success', 'User Berhasil login');
-
+            if (Auth::user()->role == 'admin')
+            {
+                return redirect("dashboard");  // admin dashboard path
+            } else {
+                return redirect("apply");  // member dashboard path
+            }
         }
   
         return redirect("login")->with('success', 'Login details are not valid');
        
     }
-
+    /*
+    protected function redirectTo()
+    {
+        if (Auth::user()->role == 'admin')
+        {
+            return 'admin';  // admin dashboard path
+        } else {
+            return 'home';  // member dashboard path
+        }
+    }*/
     public function register()
     {
         return view('auth.register');
@@ -70,10 +82,17 @@ class CustomAuthController extends Controller
         if(Auth::check()){
             return view('user.apply');
         }
-  
         return redirect("login")->withSuccess('You are not allowed to access');
     }
     
+    public function dashboard()
+    {
+        if(Auth::check()){
+            return view('admin.dasboard');
+        }
+        return redirect("login")->withSuccess('You are not allowed to access');
+    }
+
     public function signOut() {
         Session::flush();
         Auth::logout();

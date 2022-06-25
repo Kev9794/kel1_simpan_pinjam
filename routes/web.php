@@ -13,7 +13,11 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', function () {
+      return view('admin.dashboard');
+    })->name('dashboard');
+  });
 Route::get('/services', function () {
     return view('user.services', 
     [
@@ -75,8 +79,4 @@ Route::get('/pengambilan', function () {
 
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
-});
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard', []);
 });
