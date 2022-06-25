@@ -12,7 +12,7 @@ use App\Http\Controllers\CustomAuthController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+
 Route::get('apply', [CustomAuthController::class, 'apply']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
@@ -27,13 +27,13 @@ Route::get('/services', function () {
         "title" => "services"
     ]);
 });
-/*
+
 Route::get('/apply', function () {
     return view('user.apply', [
         "title" => "apply"
     ]);
 });
-*/
+
 Route::get('/home', function () {
     return view('user.home', [
         "title" => "home"
@@ -63,4 +63,28 @@ Route::get('/register', function () {
         "title" => "register"
             ]);
 });
-*/
+
+Route::get('/anggota', function () {
+    return view('admin.anggota', []);
+});
+
+Route::get('/angsuran', function () {
+    return view('admin.angsuran', []);
+});
+
+Route::get('/peminjaman', function () {
+    return view('admin.peminjaman', []);
+});
+
+Route::get('/pengambilan', function () {
+    return view('admin.pengambilan', []);
+});
+
+Route::get('/simpanan', function () {
+    return view('admin.simpanan', []);
+});
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard', []);
+});
+
