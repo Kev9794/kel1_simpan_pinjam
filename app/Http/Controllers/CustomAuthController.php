@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 class CustomAuthController extends Controller
@@ -21,7 +21,7 @@ class CustomAuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('apply')
+            return redirect("apply")
             ->with('success', 'User Berhasil login');
 
         }
@@ -49,10 +49,8 @@ class CustomAuthController extends Controller
            
         $data = $request->all();
         $check = $this->create($data);
-     
-     //User::create($request->all());
     
-        return redirect("login")->withSuccess('You have signed-in');
+        return redirect("login");
     }
 
     public function create(array $data)

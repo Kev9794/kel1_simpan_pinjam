@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/login.css') }}">
@@ -23,23 +23,17 @@
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
-                    @if ($message = Session::get('success')) 
-                    <div class="alert alert-success">
-                       <p>{{ $message }}</p>
-                          </div>
-                       @endif
-
                     <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
 
                             <center><p>Masukkan Email dan Password</p></center>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="Email">Email</label>
-                        <input type="email" id="email" class="form-control" placeholder="Enter Email" />
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="Password">Password</label>
-                        <input type="password" id="password" class="form-control" placeholder="Enter Password"/>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
@@ -47,7 +41,8 @@
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Belum Punya Akun</p>
-                        <button type="submit" class="btn btn-outline-danger m-3" value="register">Buat Akun</button>
+                        <a class="btn btn-outline-danger m-3" href="{{ route('register') }}"> Buat Akun</a>
+                        
                       </div>
                     </form>
                   </div>
@@ -71,4 +66,3 @@
 </html>
 
 </html>
-

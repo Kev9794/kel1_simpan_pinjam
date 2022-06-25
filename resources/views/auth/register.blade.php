@@ -67,7 +67,7 @@
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Sudah Punya Akun</p>
-                        <button type="button" class="btn btn-outline-primary m-3">Login</button>
+                        <a class="btn btn-outline-primary m-3" href="{{ route('login') }}"> Login</a>
                     </div>
     
                   </form>
