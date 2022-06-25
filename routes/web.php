@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,19 +13,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('apply', [CustomAuthController::class, 'apply']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('register', [CustomAuthController::class, 'register'])->name('register');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
 
 Route::get('/services', function () {
-    return view('user.services', [
+    return view('user.services', 
+    [
         "title" => "services"
     ]);
 });
-
+/*
 Route::get('/apply', function () {
     return view('user.apply', [
         "title" => "apply"
     ]);
 });
-
+*/
 Route::get('/home', function () {
     return view('user.home', [
         "title" => "home"
@@ -42,7 +51,7 @@ Route::get('/contact', function () {
         "title" => "contact"
     ]);
 });
-
+/*
 Route::get('/login', function () {
     return view('auth.login', [
         "title" => "login"
@@ -52,5 +61,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register', [
         "title" => "register"
-    ]);
+            ]);
 });
+*/
