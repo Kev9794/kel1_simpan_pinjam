@@ -80,7 +80,3 @@ Route::get('/pengambilan', function () {
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
 });
-/*
-Route::get('/dashboard', function () {
-    return view('admin.dashboard', []);
-});*/

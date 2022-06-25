@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Anggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class SimpanPinjamController extends Controller
 {
     /**
@@ -15,8 +12,7 @@ class SimpanPinjamController extends Controller
      */
     public function index()
     {
-        //$anggota = DB::table('anggota')->get();
-        return view('user.home');
+      //
     }
 
     /**
@@ -25,8 +21,8 @@ class SimpanPinjamController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('auth.register');
+    {        
+        //
     }
 
     /**
@@ -37,18 +33,7 @@ class SimpanPinjamController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id_anggota'=>'required',
-            'nama'      =>'required',
-            'email'     =>'required',
-            'password'  =>'required',
-            'no_telp'   =>'required',
-            'alamat'    =>'required',
-        ]);
-        Anggota::create($request->all());
-
-        return redirect()->route('auth.register')
-        ->with('success','Anggota Berhasil Ditambahkan');
+        //
     }
 
     /**
@@ -59,10 +44,8 @@ class SimpanPinjamController extends Controller
      */
     public function show($id)
     {
-        $anggota = Anggota::find($id);
-        return view('anggota.detail',compact('anggota'));
+        //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,19 +67,7 @@ class SimpanPinjamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'id_anggota'=>'required',
-            'nama'      =>'required',
-            'email'     =>'required',
-            'password'  =>'required',
-            'no_telp'   =>'required',
-            'alamat'    =>'required',
-
-        ]);
-        Anggota::find($id)->update($request->all());
-
-        return redirect()->route('anggota.index')
-        ->with('success','Anggota Berhasil Diupdate');
+      //
     }
 
     /**
