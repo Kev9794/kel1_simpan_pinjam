@@ -1,33 +1,38 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 */
-Route::get('apply', [CustomAuthController::class, 'apply']); 
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('register', [CustomAuthController::class, 'register'])->name('register');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+//Route::get('apply', [CustomAuthController::class, 'apply'])->middleware('auth'); 
+Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('login', [LoginController::class, 'authenticate']); 
+Route::post('logout', [LoginController::class, 'logout']); 
+Route::get('register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::post('register', [RegisterController::class, 'store']); 
+Route::get('dashboard',[DashboardController::class, 'index'])->middleware('auth');
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', function () {
-      return view('admin.dashboard');
+        return view('admin.dashboard');
     })->name('dashboard');
-  });
+});
+
+Route::get('/apply', function () {
+    return view('user.apply', 
+    [
+        "title" => "apply"
+    ]);
+});
+
 Route::get('/services', function () {
     return view('user.services', 
     [
         "title" => "services"
-    ]);
-});
-
-Route::get('/apply', function () {
-    return view('user.apply', [
-        "title" => "apply"
     ]);
 });
 
@@ -49,22 +54,10 @@ Route::get('/contact', function () {
     ]);
 });
 /*
-Route::get('/login', function () {
-    return view('auth.login', [
-        "title" => "login"
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('auth.register', [
-        "title" => "register"
-            ]);
-});
-*/
 Route::get('/anggota', function () {
     return view('admin.anggota', []);
 });
-
+*/
 Route::get('/angsuran', function () {
     return view('admin.angsuran', []);
 });

@@ -23,17 +23,31 @@
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
-                    <form method="POST" action="{{ route('login.custom') }}">
-                            @csrf
-
-                            <center><p>Masukkan Email dan Password</p></center>
+                    @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      </button>
+                    </div>
+                    @endif
+                    @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      </button>
+                    </div>
+                    @endif
+                    <form method="POST" action="/login">
+                    @csrf
+                      <center><p>Masukkan Email dan Password</p></center>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="Email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                        <input type="email" id="email" name="email" class="form-control" 
+                        placeholder="Enter Email" required>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="Password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">

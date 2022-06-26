@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Models\Anggota;
+use Illuminate\Support\Facades\DB;
 
-class SimpanPinjamController extends Controller
+class PeminjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,7 +14,7 @@ class SimpanPinjamController extends Controller
      */
     public function index()
     {
-      return view(user.apply);
+        return view('user.apply');
     }
 
     /**
@@ -20,8 +23,8 @@ class SimpanPinjamController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
-        //
+    {
+        return view('user.apply');
     }
 
     /**
@@ -32,16 +35,7 @@ class SimpanPinjamController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id_anggota'=>'required',
-            'nama'      =>'required',
-            'email'     =>'required',
-            'password'  =>'required',
-            'no_telp'   =>'required',
-            'alamat'    =>'required',
-        ]);
-        Anggota::create($request->all());
-        ->with('success','Anggota Berhasil Ditambahkan');
+        //
     }
 
     /**
@@ -52,7 +46,7 @@ class SimpanPinjamController extends Controller
      */
     public function show($id)
     {
-        $anggota = Anggota::find($id);
+        //
     }
 
     /**
@@ -63,8 +57,7 @@ class SimpanPinjamController extends Controller
      */
     public function edit($id)
     {
-        $anggota = DB::table('anggota')->where('id',$id)->first();;
-        return view('anggota.edit');
+        //
     }
 
     /**
@@ -76,7 +69,7 @@ class SimpanPinjamController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //
+        //
     }
 
     /**
