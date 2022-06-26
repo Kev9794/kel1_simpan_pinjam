@@ -49,6 +49,7 @@
                                 <a href="index.html"><img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 40%;"></a>
                             </div>
                         </div>
+                        @auth
                         <div class="col-xl-10 col-lg-10 col-md-10">
                             <div class="menu-main d-flex align-items-center justify-content-end">
                                 <!-- Main-menu -->
@@ -64,6 +65,19 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block" style="margin-right: 5px;">
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn header-btn">Logout</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        @elseguest
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                
+                                <div class="header-right-btn f-right d-none d-lg-block" style="margin-right: 8px;">
                                     <a href="/login" class="btn header-btn">Login</a>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block">
@@ -71,6 +85,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endauth
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

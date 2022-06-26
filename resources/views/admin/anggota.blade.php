@@ -11,8 +11,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">id_anggota</th>
-                                        <th scope="col">Nama</th>
+                                        <th scope="col">ID Anggota</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Password</th>
                                         <th scope="col">No Telp</th>
@@ -21,6 +22,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->password }}</td>
+                                    <td>{{ $user->no_telp }}</td>
+                                    <td>{{ $user->alamat }}</td>
+
+                                    <td>
+                                    <form action="{{ route('anggota.destroy',['users'=>$user->id]) }}" method="POST">
+                        
+                                            <a class="btn btn-info" href="{{ route('anggota.show',$user->id) }}">Show</a>
+
+                                            <a class="btn btn-primary" href="{{ route('anggota.edit',$user->id) }}">Edit</a>
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            
+                
+                                    </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>1</td>

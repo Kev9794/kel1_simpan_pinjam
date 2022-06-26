@@ -54,6 +54,10 @@
                     <a href="/simpanan" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Simpanan</a>
                     <a href="/pengambilan" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Penarikan</a>
                     <a href="/angsuran" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Angsuran</a>
+                    <form action="/logout" method="POST">
+                    @csrf
+                        <button type="submit" class="btn nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Logout</a>
+                    </form>
                 </div>
             </nav>
         </div>

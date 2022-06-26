@@ -21,80 +21,43 @@
                     <div class="col-lg-8">
                         <div class="apply-wrapper">
                             <!-- Form -->
-                            <form action="#">
+                            <form method="POST" action="{{ route('peminjaman.store') }}">
                                 <div class="row">
-                                    <!-- First Name -->
+                                    <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* NAMA PEMINJAM</label>
-                                            <input type="text" name="" placeholder="Enter name">
+                                            <label>* ID PEMINJAM</label>
+                                            <input type="text" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
                                     <!-- Jumlah Pinjaman -->
                                     <div class="col-lg-6">
                                        <div class="single-form">
                                             <label>* Jumlah Pinjaman</label>
-                                            <input type="number" name="" placeholder="Enter jumlah">
+                                            <input type="number" name="jumlah" placeholder="Enter jumlah">
                                        </div>
                                     </div>
-                                    <!-- Radio -->
-                                    <div class="col-lg-12">
-                                       <div class="single-form  d-flex">
-                                            <label>* Jenis Kelamin :</label>
-                                            <!--Radio Select -->
-                                           <div class="select-radio6">
-                                                <div class="radio">
-                                                    <input id="radio" name="radio" type="radio" checked="">
-                                                    <label for="radio-6" class="radio-label">Laki</label>
-                                                </div>
-                                                <div class="radio">
-                                                    <input id="radio" name="radio" type="radio">
-                                                    <label for="radio-7" class="radio-label">Perempuan</label>
-                                                </div>
-                                            </div>
-                                       </div>
-                                    </div>
+                                    <!-- Tanggal Peminjaman -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
                                             <label>* Tanggal Pinjam</label>
-                                            <input type="date">
+                                            <input type="date" id="tgl_pinjam" name="tgl_pinjam">
                                         </div>
                                     </div>
-                                    <!-- Last Name -->
+                                    <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Lama Pinjam / Bulan</label>
-                                            <input type="number" name="" placeholder="Enter Number">
+                                            <label>* Tenggat Waktu Pinjam</label>
+                                            <input type="date" id="tenggat_waktu" name="tenggat_waktu">
                                         </div>
                                     </div>
-                                    <!-- Nice Select -->
-                                    <div class="col-lg-12">
-                                        <div class="single-form">
-                                            <label>* Jenis pinjaman</label>
-                                            <div class="select-option mb-10">
-                                                <select name="select" id="select1">
-                                                    <option value="">Pilih Kategori</option>
-                                                    <option value="">KTA</option>
-                                                    <option value="">KUR</option>
-                                                    <option value="">FLAT</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Street Address -->
-                                    <div class="col-lg-6">
-                                        <div class="single-form">
-                                            <label>* Bunga Pinjaman</label>
-                                            <input type="number" name="" placeholder="Enter Bunga">
-                                        </div>
-                                    </div>
-                                    
                                     </div>
                                 </div>
                             </form>
                             <!-- End From -->
                             <!-- Form btn -->
-                            <a href="#" class="btn apply-btn mt-30">AJUKAN</a>
+                            
+                            <button class="btn apply-btn mt-30" type="submit">Ajukan</button>
                         </div>
                     </div>
                 </div>

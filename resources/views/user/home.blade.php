@@ -11,7 +11,12 @@
                             <p data-animation="fadeInLeft" data-delay=".2s">Peminjaman dengan cepat dan aman</p>
                             <h1 data-animation="fadeInLeft" data-delay=".5s">Koperasi Simpan Pinjam<br> Kelompok I.</h1>
                             <!-- Hero Btn -->
-                            <a href="apply.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @auth 
+                            <a href="/apply" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @elseguest
+                            <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @endauth
+                            
                         </div>
                         <div class="hero__img">
                             <img src="{{ asset('style/assets/img/hero/hero_img.jpg') }}" alt="">
@@ -25,7 +30,11 @@
                             <p data-animation="fadeInLeft" data-delay=".2s">Peminjaman dengan cepat dan aman</p>
                             <h1 data-animation="fadeInLeft" data-delay=".5s">Untuk Membangun Bisnis Anda.</h1>
                             <!-- Hero Btn -->
-                            <a href="apply.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @auth 
+                            <a href="/apply" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @elseguest
+                            <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @endauth
                         </div>
                         <div class="hero__img">
                             <img src="{{ asset('style/assets/img/hero/hero_img2.jpg') }}" alt="">
@@ -93,7 +102,11 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, oeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut eniminixm, quis nostrud exercitation ullamco laboris nisi ut aliquip exeaoauat. Duis aute irure dolor
                                 in reprehe.</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, oeiusmod tempor incididunt ut labore et dolore magna aliq.</p>
-                            <a href="apply.html" class="btn">Ajukan Peminjaman</a>
+                            @auth 
+                            <a href="/apply" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @elseguest
+                            <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Ajukan Peminjaman</a>
+                            @endauth
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
