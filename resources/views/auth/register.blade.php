@@ -24,38 +24,39 @@
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card">
                 <div class="card-body py-5 px-md-5">
-                  <form>
+                <form action="{{ route('register.custom') }}" method="POST">
+                            @csrf
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="form3Example1" class="form-control" placeholder="Name"/>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Name"/>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="form3Example1" class="form-control" placeholder="Username"/>
+                          <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
                         </div>
                       </div>
                     </div>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="email" id="form3Example3" class="form-control" placeholder="Email"/>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email"/>
                     </div>
     
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="password" id="form3Example4" class="form-control" placeholder="Password"/>
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
                     </div>
 
                     <!-- Telp input -->
                     <div class="form-outline mb-4">
-                      <input type="number" id="form3Example4" class="form-control" placeholder="No Telp"/>
+                      <input type="number" id="no_telp" name="no_telp" class="form-control" placeholder="No Telp"/>
                     </div>
 
                     <!-- Alamat input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example4" class="form-control" placeholder="Alamat"/>
+                      <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat"/>
                     </div>
 
     
@@ -66,7 +67,7 @@
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Sudah Punya Akun</p>
-                        <button type="button" class="btn btn-outline-primary m-3">Login</button>
+                        <a class="btn btn-outline-primary m-3" href="{{ route('login') }}"> Login</a>
                     </div>
     
                   </form>

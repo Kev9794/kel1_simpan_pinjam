@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/login.css') }}">
@@ -23,22 +23,26 @@
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
-                    <form>
-                      <center><p>Masukkan Username dan Password</p></center>
+                    <form method="POST" action="{{ route('login.custom') }}">
+                            @csrf
+
+                            <center><p>Masukkan Email dan Password</p></center>
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example11">Username</label>
-                        <input type="email" id="form2Example11" class="form-control" placeholder="Enter Username" />
+                        <label class="form-label" for="Email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
                       </div>
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example22">Password</label>
-                        <input type="password" id="form2Example22" class="form-control" placeholder="Enter Password"/>
+                        <label class="form-label" for="Password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
                       </div>
+
                       <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mt-3" type="button">Login</button>
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 mt-3" type="submit">Login</button>
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
-                        <p class="mb-0 me-2">Belom Punya Akun</p>
-                        <button type="button" class="btn btn-outline-danger m-3">Buat Akun</button>
+                        <p class="mb-0 me-2">Belum Punya Akun</p>
+                        <a class="btn btn-outline-danger m-3" href="{{ route('register') }}"> Buat Akun</a>
+                        
                       </div>
                     </form>
                   </div>
@@ -62,4 +66,3 @@
 </html>
 
 </html>
-
