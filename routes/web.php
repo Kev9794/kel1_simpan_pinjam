@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ApplyController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -24,7 +25,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     })->name('dashboard');
 });
 Route::resource('apply', ApplyController::class)->middleware('auth');
-
+Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
 Route::get('/services', function () {
     return view('user.services', 
     [

@@ -44,7 +44,7 @@ class ApplyController extends Controller
     {
         $validatedData = $request->validate([
             'jumlah' => 'required',
-            'tanggal' => 'required',
+            'tgl_pinjam' => 'required',
             'tenggat_waktu' => 'required',
             'user_id' => 'required',
         ]);

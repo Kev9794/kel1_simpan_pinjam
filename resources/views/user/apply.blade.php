@@ -16,25 +16,35 @@
         <!--Hero End -->
         <!-- Apply Area Start -->
         <div class="apply-area pt-150 pb-150">
+            
             <div class="container">
+                    
                 <div class="row justify-content-center">
+                    
                     <div class="col-lg-8">
+                        @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ session('success') }}
+                        </div>
+                        @endif
                         <div class="apply-wrapper">
                             <!-- Form -->
-                            <form method="POST" action="{{ route('apply.store') }}">
+                            <form method="POST" action="/apply">
+                                @csrf
                                 <div class="row">
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
                                             <label>* ID PEMINJAM</label>
-                                            <input type="text" name="user_id" value="{{ auth()->user()->id }}" readonly>
+                                            <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
                                     <!-- Jumlah Pinjaman -->
                                     <div class="col-lg-6">
                                        <div class="single-form">
                                             <label>* Jumlah Pinjaman</label>
-                                            <input type="number" name="jumlah" placeholder="Enter jumlah">
+                                            <input type="number" id="jumlah" name="jumlah" placeholder="Enter jumlah">
                                        </div>
                                     </div>
                                     <!-- Tanggal Peminjaman -->
@@ -51,13 +61,11 @@
                                             <input type="date" id="tenggat_waktu" name="tenggat_waktu">
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
+                                <button class="btn apply-btn mt-30" type="submit">Ajukan</button>
                             </form>
                             <!-- End From -->
-                            <!-- Form btn -->
-                            
-                            <button class="btn apply-btn mt-30" type="submit">Ajukan</button>
+                        </div>
                         </div>
                     </div>
                 </div>
