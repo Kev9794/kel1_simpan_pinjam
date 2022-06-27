@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_peminjaman');
             $table->date('tgl_pinjam');
             $table->integer('jumlah');
-            $table->date('jangka_waktu');
+            $table->date('tenggat_waktu');
             $table->timestamps();
         });
     }

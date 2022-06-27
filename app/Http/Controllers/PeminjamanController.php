@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Anggota;
+use App\Models\Peminjaman;
 use Illuminate\Support\Facades\DB;
 
 class PeminjamanController extends Controller
@@ -27,10 +27,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
-        ]);
+        //
     }
 
     /**
