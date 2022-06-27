@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Anggota;
-use Illuminate\Support\Facades\DB;
 
-class PeminjamanController extends Controller
+use Illuminate\Http\Request;
+
+class PengambilanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,7 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
-        ]);
+        //
     }
 
     /**
@@ -27,10 +23,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
-        ]);
+        //
     }
 
     /**

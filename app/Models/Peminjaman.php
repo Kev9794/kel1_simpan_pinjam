@@ -11,6 +11,6 @@ class Peminjaman extends Model
     protected $table='peminjaman';
 
     public function anggota(){
-        return $this->belongsTo(Anggota::class);
+        return $this->belongsTo(User::class);
     }
 }

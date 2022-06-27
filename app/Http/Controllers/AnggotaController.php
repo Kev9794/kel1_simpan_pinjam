@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Anggota;
-use Illuminate\Support\Facades\DB;
 
-class PeminjamanController extends Controller
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+
+class AnggotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,8 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
+        return view('admin.anggota', [
+            'users' => User::whereNull('role')->get()
         ]);
     }
 
@@ -27,10 +27,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
-        ]);
+        //
     }
 
     /**
@@ -52,7 +49,9 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.show-anggota', [
+            'users' => User::where('id', $id)->get()
+        ]);
     }
 
     /**
@@ -63,7 +62,9 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit-anggota', [
+            'users' => User::where('id', $id)->get()
+        ]);
     }
 
     /**
@@ -75,7 +76,19 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:6',
+            'no_telp' => 'required',
+            'alamat' => 'required',
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        
+        User::where('id',$id)->update($validatedData);
+        
+        return redirect('/anggota')->with('success','Data Anggota berhasil diperbarui');
     }
 
     /**
@@ -86,6 +99,7 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy('id',$id);
+        return redirect('/anggota')->with('success','Anggota berhasil dihapus');
     }
 }

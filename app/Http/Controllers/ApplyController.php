@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Anggota;
-use Illuminate\Support\Facades\DB;
 
-class PeminjamanController extends Controller
+use App\Models\Peminjaman;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+class ApplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,7 +42,16 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tanggal' => 'required',
+            'tenggat_waktu' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        Peminjaman::create($validatedData);
+        
+        return redirect('apply')->with('success','Peminjaman berhasil diajukan');
     }
 
     /**

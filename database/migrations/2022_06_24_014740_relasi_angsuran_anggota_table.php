@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('angsuran', function (Blueprint $table){
-            $table->unsignedBigInteger('anggota_id')->nullable();
-            $table->foreign('anggota_id')->references('id_anggota')->on('anggota');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('angsuran', function (Blueprint $table){
-            $table->dropForeign(['anggota_id']);
+            $table->dropForeign(['user_id']);
         });
     }
 };

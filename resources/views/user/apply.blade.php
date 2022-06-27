@@ -21,7 +21,7 @@
                     <div class="col-lg-8">
                         <div class="apply-wrapper">
                             <!-- Form -->
-                            <form method="POST" action="{{ route('peminjaman.store') }}">
+                            <form method="POST" action="{{ route('apply.store') }}">
                                 <div class="row">
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">

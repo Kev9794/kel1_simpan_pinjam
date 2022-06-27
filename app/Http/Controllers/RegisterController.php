@@ -28,4 +28,27 @@ class RegisterController extends Controller
         
         return redirect("login")->with('success','Registration successfull! Please login first');
     }
+    public function edit($id)
+    {
+        return view('user.manage-account', [
+            'users' => User::where('id', $id)->get()
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:6',
+            'no_telp' => 'required',
+            'alamat' => 'required',
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        
+        User::where('id',$id)->update($validatedData);
+        
+        return redirect('/home')->with('success','Data diri berhasil diperbarui');
+    }
 }
