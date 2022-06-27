@@ -29,6 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('dashmin/css/style.css') }}" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -39,11 +48,12 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="/dashboard" class="navbar-brand mx-4 mb-3">
-                <img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 60%;">
+                    <img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 60%;">
                 </a>
+                <br>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="ms-3">
-                        <h6 class="mb-0">Admin Kevin</h6>
+                        <h5 class="mb-0 fw-bolder">Admin Kevin</h5>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -55,14 +65,14 @@
                     <a href="/pengambilan" class="nav-item nav-link {{ Request::is('pengambilan') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Penarikan</a>
                     <a href="/angsuran" class="nav-item nav-link {{ Request::is('angsuran') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Angsuran</a>
                     <form action="/logout" method="POST">
-                    @csrf
+                        @csrf
                         <button type="submit" class="btn nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Logout</a>
                     </form>
                 </div>
             </nav>
         </div>
         <!-- Sidebar End -->
-        
+
         <!-- Content Start -->
         <div class="content">
             @if(session()->has('success'))
@@ -73,8 +83,8 @@
             </div>
             @endif
             @yield('container')
-        <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
@@ -86,8 +96,8 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
