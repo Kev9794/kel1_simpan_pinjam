@@ -37,29 +37,27 @@
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PEMINJAM</label>
+                                            <label>* ID SIMPANAN</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
-                                    </div>
-                                    <!-- Jumlah Pinjaman -->
-                                    <div class="col-lg-6">
-                                       <div class="single-form">
-                                            <label>* Jumlah Pinjaman</label>
-                                            <input type="number" id="jumlah" name="jumlah" placeholder="Enter jumlah">
-                                       </div>
                                     </div>
                                     <!-- Tanggal Peminjaman -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tanggal Pinjam</label>
+                                            <label>* Tanggal SIMPAN</label>
                                             <input type="date" id="tgl_pinjam" name="tgl_pinjam">
                                         </div>
                                     </div>
-                                    <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tenggat Waktu Pinjam</label>
-                                            <input type="date" id="tenggat_waktu" name="tenggat_waktu">
+                                            <label>* JUmlah</label>
+                                            <input type="number" id="jumlah" name="jumlah">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-form">
+                                            <label>* saldo</label>
+                                            <input type="number" id="" name="">
                                         </div>
                                     </div>
                                 </div>

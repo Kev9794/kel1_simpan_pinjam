@@ -29,7 +29,7 @@
                         </div>
                         @endif
                         <div class="apply-wrapper">
-                            <p>PEMINJAMAN</p>
+                            <p>PENARIKAN</p>
                             <!-- Form -->
                             <form method="POST" action="/apply">
                                 @csrf
@@ -37,33 +37,31 @@
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PEMINJAM</label>
+                                            <label>* ID PENARIKAN</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
-                                        </div>
-                                    </div>
-                                    <!-- Jumlah Pinjaman -->
-                                    <div class="col-lg-6">
-                                       <div class="single-form">
-                                            <label>* Jumlah Pinjaman</label>
-                                            <input type="number" id="jumlah" name="jumlah" placeholder="Enter jumlah">
-                                       </div>
-                                    </div>
-                                    <!-- Tanggal Peminjaman -->
-                                    <div class="col-lg-6">
-                                        <div class="single-form">
-                                            <label>* Tanggal Pinjam</label>
-                                            <input type="date" id="tgl_pinjam" name="tgl_pinjam">
                                         </div>
                                     </div>
                                     <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tenggat Waktu Pinjam</label>
-                                            <input type="date" id="tenggat_waktu" name="tenggat_waktu">
+                                            <label>* Tanggal Ambil</label>
+                                            <input type="date" id="tanggalAmbil" name="tanggalAmbil">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-form">
+                                            <label>* Jumlah</label>
+                                            <input type="number" id="jumlah" name="jumlah">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-form">
+                                            <label>* Saldo</label>
+                                            <input type="number" id="saldo" name="saldo">
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn apply-btn mt-30" type="submit">Ajukan</button>
+                                <button class="btn apply-btn mt-30" type="submit">TARIK</button>
                             </form>
                             <!-- End From -->
                         </div>
