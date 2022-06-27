@@ -26,7 +26,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     })->name('dashboard');
 });
 Route::resource('apply', ApplyController::class)->middleware('auth');
-Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
+
 Route::get('/services', function () {
     return view(
         'user.services',
@@ -56,12 +56,10 @@ Route::get('/contact', function () {
 
 Route::resource('anggota', AnggotaController::class)->middleware('auth');
 
+Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
+
 Route::get('/angsuran', function () {
     return view('admin.angsuran', []);
-});
-
-Route::get('/peminjaman', function () {
-    return view('admin.peminjaman', []);
 });
 
 Route::get('/pengambilan', function () {

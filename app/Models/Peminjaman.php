@@ -18,7 +18,7 @@ class Peminjaman extends Model
         'user_id',
     ];
 
-    public function anggota(){
+    public function users(){
         return $this->belongsTo(User::class);
     }
 }
