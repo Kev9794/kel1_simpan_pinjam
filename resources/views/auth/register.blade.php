@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/style.css') }}">
 </head>
+  <style>
+     .button{
+      background: linear-gradient(to right, #5e8fca, #3589F1, #4b75c8);
+     }
+  </style>
 <body>
     <section class="">
       <!-- Jumbotron -->
@@ -67,7 +72,7 @@
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Sudah Punya Akun</p>
-                        <a class="btn btn-outline-primary m-3" href="{{ route('login') }}"> Login</a>
+                        <a class="btn btn-outline-primary m-3 button" href="{{ route('login') }}"> Login</a>
                     </div>
     
                   </form>

@@ -19,7 +19,7 @@
                 <div class="col-lg-6">
                   <div class="card-body p-md-5 mx-md-4">
                     <div class="text-center">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                      <img src="{{ asset('style/assets/img/logo/logok.png') }}"
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
@@ -55,7 +55,7 @@
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Belum Punya Akun</p>
-                        <a class="btn btn-outline-danger m-3" href="{{ route('register') }}"> Buat Akun</a>
+                        <a class="btn btn-outline-primary m-3" href="{{ route('register') }}"> Buat Akun</a>
                         
                       </div>
                     </form>
