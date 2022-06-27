@@ -14,10 +14,8 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('user.apply', 
-        [
-            "title" => "apply"
-        ]);
+        $peminjaman = Peminjaman::with('users')->get();
+        return view('admin.peminjaman', ['peminjaman' => $peminjaman]);
     }
 
     /**
@@ -49,7 +47,9 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.show-peminjaman', [
+            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
+        ]);
     }
 
     /**
@@ -60,7 +60,9 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit-peminjaman', [
+            'peminjaman' => Peminjaman::where('id', $id)->get()
+        ]);
     }
 
     /**
@@ -72,7 +74,16 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tgl_pinjam' => 'required',
+            'tenggat_waktu' => 'required',
+            'user_id' => 'required',
+        ]);
+        
+        Peminjaman::where('id',$id)->update($validatedData);
+        
+        return redirect('/peminjaman')->with('success','Peminjaman berhasil diperbarui');
     }
 
     /**
@@ -83,6 +94,7 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Peminjaman::destroy('id',$id);
+        return redirect('/peminjaman')->with('success','Peminjaman berhasil dihapus');
     }
 }
