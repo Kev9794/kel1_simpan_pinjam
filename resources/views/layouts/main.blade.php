@@ -56,11 +56,11 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li class="{{ ($title === "home" )? 'active' : '' }}"><a href="/home">Home</a></li>
-                                            <li class="{{ ($title === "about" )? 'active' : '' }}"><a href="/about">About</a></li>
-                                            <li class="{{ ($title === "services" )? 'active' : '' }}"><a href="/services">Services</a></li>
-                                            <li class="{{ ($title === "apply" )? 'active' : '' }}"><a href="/apply">Apply</a></li>
-                                            <li class="{{ ($title === "contact" )? 'active' : '' }}"><a href="/contact">Contact</a></li>
+                                            <li class="{{ ($title === "home" )? 'active' : '' }}"><a class="{{ Request::is('/home') ? 'active' : '' }}" href="/home">Home</a></li>
+                                            <li class="{{ ($title === "about" )? 'active' : '' }}"><a class="{{ Request::is('/about') ? 'active' : '' }}" href="/about">About</a></li>
+                                            <li class="{{ ($title === "services" )? 'active' : '' }}"><a class="{{ Request::is('/services') ? 'active' : '' }}" href="/services">Services</a></li>
+                                            <li class="{{ ($title === "apply" )? 'active' : '' }}"><a class="{{ Request::is('/apply') ? 'active' : '' }}" href="/apply">Apply</a></li>
+                                            <li class="{{ ($title === "contact" )? 'active' : '' }}"><a class="{{ Request::is('/contact') ? 'active' : '' }}" href="/contact">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>

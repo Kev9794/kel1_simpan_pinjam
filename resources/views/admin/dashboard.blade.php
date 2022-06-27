@@ -10,7 +10,7 @@
                             <i class="fa fa-user fa-3x text-light"></i>
                             <div class="ms-1">
                                 <p class="mb-2 text-light ">Total Anggota</p>
-                                <h6 class="mb-0 text-light fw-bold">$1234</h6>
+                                <h6 class="mb-0 text-light fw-bold">{{ auth()->user()->count() - 1 }}</h6>
                             </div>
                         </div>
                     </div>

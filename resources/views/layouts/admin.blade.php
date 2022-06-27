@@ -48,12 +48,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="/anggota" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Anggota</a>
-                    <a href="/peminjaman" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Peminjaman</a>
-                    <a href="/simpanan" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Simpanan</a>
-                    <a href="/pengambilan" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Penarikan</a>
-                    <a href="/angsuran" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Tabel Angsuran</a>
+                    <a href="/dashboard" class="nav-item nav-link {{ Request::is('dashboard') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/anggota" class="nav-item nav-link {{ Request::is('anggota') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Anggota</a>
+                    <a href="/peminjaman" class="nav-item nav-link {{ Request::is('peminjaman') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Peminjaman</a>
+                    <a href="/simpanan" class="nav-item nav-link {{ Request::is('simpanan') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Simpanan</a>
+                    <a href="/pengambilan" class="nav-item nav-link {{ Request::is('pengambilan') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Penarikan</a>
+                    <a href="/angsuran" class="nav-item nav-link {{ Request::is('angsuran') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Angsuran</a>
                     <form action="/logout" method="POST">
                     @csrf
                         <button type="submit" class="btn nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Logout</a>
@@ -62,8 +62,16 @@
             </nav>
         </div>
         <!-- Sidebar End -->
+        
         <!-- Content Start -->
         <div class="content">
+            @if(session()->has('success'))
+            <div class="container-fluid pt-4 px-4">
+                <div class="alert alert-success col-12" role="alert">
+                    {{ session('success') }}
+                </div>
+            </div>
+            @endif
             @yield('container')
         <!-- Footer Start -->
         <div class="container-fluid pt-4 px-4">

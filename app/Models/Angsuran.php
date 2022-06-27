@@ -11,6 +11,6 @@ class Angsuran extends Model
     protected $table='angsuran';
 
     public function anggota(){
-        return $this->belongsTo(Anggota::class);
+        return $this->belongsTo(User::class);
     }
 }

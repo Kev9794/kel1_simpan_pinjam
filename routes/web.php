@@ -1,7 +1,10 @@
 <?php
+
+use App\Http\Controllers\AnggotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -9,7 +12,6 @@ use App\Http\Controllers\RegisterController;
 | Web Routes
 |--------------------------------------------------------------------------
 */
-//Route::get('apply', [CustomAuthController::class, 'apply'])->middleware('auth'); 
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class, 'authenticate']); 
 Route::post('logout', [LoginController::class, 'logout']); 
@@ -21,13 +23,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         return view('admin.dashboard');
     })->name('dashboard');
 });
-
-Route::get('/apply', function () {
-    return view('user.apply', 
-    [
-        "title" => "apply"
-    ]);
-});
+Route::resource('apply', ApplyController::class)->middleware('auth');
 
 Route::get('/services', function () {
     return view('user.services', 
@@ -53,11 +49,9 @@ Route::get('/contact', function () {
         "title" => "contact"
     ]);
 });
-/*
-Route::get('/anggota', function () {
-    return view('admin.anggota', []);
-});
-*/
+
+Route::resource('anggota', AnggotaController::class)->middleware('auth');
+
 Route::get('/angsuran', function () {
     return view('admin.angsuran', []);
 });
