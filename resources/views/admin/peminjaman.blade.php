@@ -7,32 +7,38 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-light rounded h-100 p-4">
                             <button type="button" class="btn btn-success"><i class="fa fa-print"></i>Cetak Laporan</button>  
-                            <h6 class="mb-4">Tabel Peminjaman</h6>
+                            <h6 class="mt-3 mb-4">Tabel Peminjaman</h6>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">id_pinjaman</th>
+                                        <th scope="col">ID Peminjaman</th>
                                         <th scope="col">Tanggal Pinjam</th>
                                         <th scope="col">Jumlah</th>
-                                        <th scope="col">Jangka Waktu</th>
-                                        <th scope="col">id_anggota</th>
+                                        <th scope="col">Tenggat Waktu</th>
+                                        <th scope="col">ID Anggota</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>1</td>
-                                        <td>5 Maret 2020</td>
-                                        <td>Rp.5.000.000</td>
-                                        <td>2 Bulan</td>
-                                        <td>1</td>
-                                        <td>
-                                        <button type="button" class="btn btn-primary">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                
+                                @foreach ($peminjaman as $pinjam)
+                                <tr>
+                                    <td>{{ $pinjam->id_peminjaman }}</td>
+                                    <td>{{ $pinjam->tgl_pinjam }}</td>
+                                    <td>{{ $pinjam->jumlah }}</td>
+                                    <td>{{ $pinjam->tenggat_waktu }}</td>
+                                    <td>{{ $pinjam->user_id }}</td>
+                                    <td>
+                                    <a class="btn btn-info" href="/peminjaman/{{ $pinjam->id_peminjaman }}">Show</a>
+                                    <a class="btn btn-primary" href="/peminjaman/{{ $pinjam->id_peminjaman }}/edit">Edit</a>
+                                    <form action="/peminjaman/{{ $pinjam->id_peminjaman }}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf 
+                                        <button class="btn btn-danger" onclick="return confirm('Anda yakin?')">Delete</button>
+                                    </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
