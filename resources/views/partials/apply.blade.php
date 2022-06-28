@@ -19,7 +19,7 @@
                     <a class="nav-link active" href="/apply/peminjaman">Peminjaman</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="/apply/penarikan">Penarikan</a>
+                    <a class="nav-link" href="{{ route('penarikan') }}">Penarikan</a>
             </li>
             <li class="nav-item">
                     <a class="nav-link" href="/apply/simpanan">Simpanan</a>

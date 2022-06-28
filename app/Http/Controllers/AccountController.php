@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Peminjaman;
-use Illuminate\Support\Facades\DB;
 
-class PeminjamanController extends Controller
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
+
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,7 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $peminjaman = Peminjaman::with('users')->get();
-        return view('admin.peminjaman', ['peminjaman' => $peminjaman]);
+        return view('user.account');
     }
 
     /**
@@ -25,7 +26,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.account');
     }
 
     /**
@@ -36,7 +37,7 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -47,9 +48,7 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
-        ]);
+        //
     }
 
     /**
@@ -60,8 +59,8 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
+        return view('user.account', [
+            'users' => User::where('id', $id)->get()
         ]);
     }
 
@@ -75,15 +74,16 @@ class PeminjamanController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'jumlah' => 'required',
-            'tgl_pinjam' => 'required',
-            'tenggat_waktu' => 'required',
-            'user_id' => 'required',
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email:dns|unique:users',
+            'no_telp' => 'required',
+            'alamat' => 'required',
         ]);
+    
+        User::where('id',$id)->update($validatedData);
         
-        Peminjaman::where('id_peminjaman',$id)->update($validatedData);
-        
-        return redirect('/peminjaman')->with('success','Peminjaman berhasil diperbarui');
+        return redirect('/account')->with('success','Akun berhasil diperbarui');
     }
 
     /**
@@ -94,7 +94,19 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        Peminjaman::destroy('id_peminjaman',$id);
-        return redirect('/peminjaman')->with('success','Peminjaman berhasil dihapus');
+        //
+    }
+
+    public function change(Request $request)
+    {
+        $validatedData = $request->validate([
+            'password_lama' => ['required', new MatchOldPassword],
+            'password' => 'required|min:6',
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
+
+        return redirect('/account')->with('message','Password berhasil diperbarui');
     }
 }

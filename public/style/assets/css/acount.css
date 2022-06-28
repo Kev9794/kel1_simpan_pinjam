@@ -1,7 +1,7 @@
 body {
     background: #f5f5f5;
-    margin-top: 20px;
-    margin-bottom: 5%;
+    margin-top: 0px;
+    margin-bottom: 0%;
 }
 
 .ui-w-80 {
@@ -109,3 +109,9 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+.hero-area2 {
+    background-image: url(../img/hero/hero2.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    min-height: 560px;
+  }

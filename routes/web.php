@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +17,12 @@ use App\Http\Controllers\RegisterController;
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class, 'authenticate']); 
 Route::post('logout', [LoginController::class, 'logout']); 
-Route::get('register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
-Route::post('register', [RegisterController::class, 'store']); 
+Route::resource('register', RegisterController::class)->middleware('guest'); 
 Route::get('dashboard',[DashboardController::class, 'index'])->middleware('auth');
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
-});
-Route::resource('apply', ApplyController::class)->middleware('auth');
-
-Route::get('/services', function () {
-    return view('user.services', 
-    [
-        "title" => "services"
-    ]);
 });
 
 Route::get('/home', function () {
@@ -45,11 +37,29 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/services', function () {
+    return view('user.services', 
+    [
+        "title" => "services"
+    ]);
+});
+
+Route::resource('apply', ApplyController::class)->middleware('auth');
+
 Route::get('/contact', function () {
     return view('user.contact', [
         "title" => "contact"
     ]);
 });
+
+Route::resource('account', AccountController::class)->middleware('auth');
+Route::post('change',[AccountController::class, 'change'])->name('change')->middleware('auth');
+
+Route::get('/apply/simpanan', function () {
+    return view('user.simpanan');
+});
+
+Route::get('penarikan',[ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
 
 Route::resource('anggota', AnggotaController::class)->middleware('auth');
 
@@ -65,16 +75,4 @@ Route::get('/pengambilan', function () {
 
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
-});
-
-Route::get('/account', function () {
-    return view('user.account');
-});
-
-Route::get('/apply/simpanan', function () {
-    return view('user.simpanan');
-});
-
-Route::get('/apply/penarikan', function () {
-    return view('user.penarikan');
 });

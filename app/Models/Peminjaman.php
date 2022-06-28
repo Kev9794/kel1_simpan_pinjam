@@ -19,6 +19,6 @@ class Peminjaman extends Model
     ];
 
     public function users(){
-        return $this->belongsTo(User::class, 'id_peminjaman');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

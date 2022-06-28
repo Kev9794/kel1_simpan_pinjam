@@ -6,7 +6,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Tabel Anggota</h6>
+                        <h4 class="mt-4 mb-4"><b>Tabel Anggota</b></h4>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -30,7 +30,8 @@
                                     <td>{{ $user->alamat }}</td>
 
                                     <td>
-                                    <a class="btn btn-info" href="/anggota/{{ $user->id }}">Show</a>
+                                    <a class="btn btn-info" href="/anggota/{{ $user->id }}" data-toggle="modal" 
+                                    data-target="#showModal">Show</a>
                                     <a class="btn btn-primary" href="/anggota/{{ $user->id }}/edit" data-toggle="modal" 
                                     data-target="#exampleModal">Edit</a>
                                     <form action="/anggota/{{ $user->id }}" method="POST" class="d-inline">
@@ -48,37 +49,75 @@
                 </div>
             </div>
         <!-- Table End -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="name">
+        <!-- Show Modal -->
+        <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h5 class="modal-title" id="exampleModalLabel"><b>Detail Anggota</b></h5>
                     </div>
-                    <div class="form-group">
-                        <label for="username" class="col-form-label">Username:</label>
-                        <input type="text" class="form-control" id="username">
+                    <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>ID Anggota: </b>{{$user->id}}</li>
+                        <li class="list-group-item"><b>Name: </b>{{$user->name}}</li>
+                        <li class="list-group-item"><b>Username: </b>{{$user->username}}</li>
+                        <li class="list-group-item"><b>Email: </b>{{$user->email}}</li> 
+                        <li class="list-group-item"><b>No Telp: </b>{{$user->no_telp}}</li>
+                        <li class="list-group-item"><b>Alamat: </b>{{$user->alamat}}</li> 
+                    </ul> 
                     </div>
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" id="email">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+        <!-- Edit Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h5 class="modal-title" id="exampleModalLabel"><b>Edit Data</b></h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/anggota" method="POST">
+                            
+                            @csrf
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" id="password" name="password" required>
+                            </div>
+                        
+                            <div class="form-outline mb-4">
+                                <label for="no_telp" class="col-form-label">No Telp:</label>
+                            <input type="number" id="no_telp" name="no_telp" class="form-control" value="{{ $user->no_telp }}" required>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label for="alamat" class="col-form-label">Alamat:</label>  
+                            <input type="text" id="alamat" name="alamat" class="form-control" value="{{ $user->alamat }}" required>
+                            </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        </form>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection

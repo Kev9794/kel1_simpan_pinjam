@@ -76,11 +76,13 @@
         <div class="content">
             @if(session()->has('success'))
             <div class="container-fluid pt-4 px-4">
-                <div class="alert alert-success col-12" role="alert">
+                <div class="alert alert-success alert-dismissible col-12">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     {{ session('success') }}
                 </div>
             </div>
             @endif
+            
             @yield('container')
         <!-- Footer Start -->
         <div class="container-fluid pt-4 px-4">

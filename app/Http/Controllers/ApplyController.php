@@ -98,4 +98,8 @@ class ApplyController extends Controller
     {
         //
     }
+
+    public function penarikan(){
+        return view('user.penarikan');
+    }
 }

@@ -55,7 +55,7 @@
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Belum Punya Akun</p>
-                        <a class="btn btn-outline-primary m-3" href="{{ route('register') }}"> Buat Akun</a>
+                        <a class="btn btn-outline-primary m-3" href="/register"> Buat Akun</a>
                         
                       </div>
                     </form>
