@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tgl_ambil');
             $table->integer('jumlah');
             $table->integer('saldo');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

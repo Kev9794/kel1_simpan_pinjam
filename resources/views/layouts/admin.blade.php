@@ -29,6 +29,14 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('dashmin/css/style.css') }}" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -41,9 +49,10 @@
                 <a href="/dashboard" class="navbar-brand mx-4 mb-3">
                 <img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 60%;">
                 </a>
+                <br>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="ms-3">
-                        <h6 class="mb-0">Admin Kevin</h6>
+                        <h5 class="mb-0 fw-bolder">Admin Kevin</h5>
                         <span>Admin</span>
                     </div>
                 </div>

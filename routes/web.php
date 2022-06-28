@@ -66,3 +66,15 @@ Route::get('/pengambilan', function () {
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
 });
+
+Route::get('/account', function () {
+    return view('user.account');
+});
+
+Route::get('/apply/simpanan', function () {
+    return view('user.simpanan');
+});
+
+Route::get('/apply/penarikan', function () {
+    return view('user.penarikan');
+});
