@@ -9,8 +9,16 @@ class Pengambilan extends Model
 {
     use HasFactory;
     protected $table='pengambilan';
+    protected $primaryKey = 'id_pengambilan';
 
-    public function anggota(){
+    protected $fillable = [
+        'tgl_ambil',
+        'jumlah',
+        'saldo',
+        'user_id',
+    ];
+
+    public function user(){
         return $this->belongsTo(User::class);
     }
 }

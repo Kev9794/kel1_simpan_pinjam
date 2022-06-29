@@ -15,6 +15,11 @@
      }
   </style>
 <body>
+    <style>
+     .button{
+      background: linear-gradient(to right, #5e8fca, #3589F1, #4b75c8);
+     }
+    </style>
     <section class="">
       <!-- Jumbotron -->
       <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
@@ -31,37 +36,36 @@
                 <div class="card-body py-5 px-md-5">
                 <form action="/register" method="POST">
                 @csrf
-                    <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="name" name="name" class="form-control" placeholder="Name"/>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+                          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
                         </div>
                       </div>
                     </div>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" name="email" class="form-control" placeholder="Email"/>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                     </div>
     
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                     </div>
 
                     <!-- Telp input -->
                     <div class="form-outline mb-4">
-                      <input type="number" id="no_telp" name="no_telp" class="form-control" placeholder="No Telp"/>
+                      <input type="number" id="no_telp" name="no_telp" class="form-control" placeholder="No Telp" required>
                     </div>
 
                     <!-- Alamat input -->
                     <div class="form-outline mb-4">
-                      <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat"/>
+                      <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" required>
                     </div>
 
     
@@ -71,8 +75,7 @@
                     </button>
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
-                        <p class="mb-0 me-2">Sudah Punya Akun</p>
-                        <a class="btn btn-outline-primary m-3 button" href="{{ route('login') }}"> Login</a>
+                      <a class="btn btn-outline-primary m-3 button" href="{{ route('login') }}"> Login</a>
                     </div>
     
                   </form>
