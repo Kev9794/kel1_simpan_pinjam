@@ -79,3 +79,7 @@ Route::get('/pengambilan', function () {
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
 });
+
+Route::get('/apply/userAngsuran', function () {
+    return view('user.userAngsuran', []);
+});

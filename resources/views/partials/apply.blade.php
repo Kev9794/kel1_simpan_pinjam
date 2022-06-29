@@ -24,5 +24,8 @@
             <li class="nav-item">
                     <a class="nav-link" href="/apply/simpanan">Simpanan</a>
             </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="/apply/angsuran">Angsuran</a>
+            </li>
         </ul>
     </div>
