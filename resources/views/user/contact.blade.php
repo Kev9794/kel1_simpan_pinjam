@@ -94,15 +94,15 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
-                                <h3>Malang, Indonesia.</h3>
-                                <p>Jalan Soekarno Hatta no.1</p>
+                                <h3>Malang, Indonesia</h3>
+                                <p>Jalan Soekarno Hatta No.1</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                             <div class="media-body">
                                 <h3>+62 253 565 2365</h3>
-                                <p>Buka Setiap Hari(07.00-15.00)</p>
+                                <p>Buka Setiap Hari (07.00-15.00)</p>
                             </div>
                         </div>
                         <div class="media contact-info">

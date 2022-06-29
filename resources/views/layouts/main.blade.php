@@ -61,7 +61,7 @@
                                             <li class="{{ ($title === "services" )? 'active' : '' }}"><a class="{{ Request::is('/services') ? 'active' : '' }}" href="/services">Services</a></li>
                                             <li class="{{ ($title === "apply" )? 'active' : '' }}"><a class="{{ Request::is('/apply') ? 'active' : '' }}" href="/apply">Apply</a></li>
                                             <li class="{{ ($title === "contact" )? 'active' : '' }}"><a class="{{ Request::is('/contact') ? 'active' : '' }}" href="/contact">Contact</a></li>
-                                            <li class="{{ ($title === "acount" )? 'active' : '' }}"><a class="{{ Request::is('/acount') ? 'active' : '' }}" href="/acount">Account</a></li>
+                                            <li class="{{ ($title === "account" )? 'active' : '' }}"><a class="{{ Request::is('/account') ? 'active' : '' }}" href="/account">Account</a></li>
                                         </ul>
                                     </nav>
                                 </div>

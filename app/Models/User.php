@@ -49,18 +49,18 @@ class User extends Authenticatable
     ];
 
     public function simpanan(){
-        return $this->hasMany(Simpanan::class);
+        return $this->hasMany(Simpanan::class, 'user_id', 'id');
     }
 
     public function pengambilan(){
-        return $this->hasMany(Pengambilan::class);
+        return $this->hasMany(Pengambilan::class, 'user_id', 'id');
     }
 
     public function peminjaman(){
-        return $this->hasMany(Peminjaman::class);
+        return $this->hasMany(Peminjaman::class, 'user_id', 'id');
     }
 
     public function angsuran(){
-        return $this->hasMany(Angsuran::class);
+        return $this->hasMany(Angsuran::class, 'user_id', 'id');
     }
 }

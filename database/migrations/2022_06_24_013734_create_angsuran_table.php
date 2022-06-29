@@ -18,7 +18,8 @@ return new class extends Migration
             $table->date('tgl_angsur');
             $table->integer('jumlah');
             $table->integer('jumlah_sisa');
-            $table->date('sisa_jangka_waktu');
+            $table->date('sisa_tenggat_waktu');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -49,7 +49,7 @@ class AnggotaController extends Controller
      */
     public function show($id)
     {
-        return view('admin.show-anggota', [
+        return view('', [
             'users' => User::where('id', $id)->get()
         ]);
     }
@@ -62,7 +62,7 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.edit-anggota', [
+        return view('', [
             'users' => User::where('id', $id)->get()
         ]);
     }

@@ -32,7 +32,7 @@ class RegisterController extends Controller
     {
         return view('user.manage-account', [
             'users' => User::where('id', $id)->get()
-        ]);
+        ])->name('account');
     }
 
     public function update(Request $request, $id)

@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             <div class="team-caption">
-                                <h3><a href="#">Rofika Nur Aini</a></h3>
+                                <h3><a href="#">Rofika Nur 'Aini</a></h3>
                                 <p>Founder</p>
                             </div>
                         </div>

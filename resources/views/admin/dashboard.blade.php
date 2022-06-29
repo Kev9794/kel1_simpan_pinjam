@@ -9,8 +9,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4 dashboard-info" style="background: linear-gradient(135deg, #17ead9 0%, #6078ea 100%); height: 8em">
                             <i class="fa fa-user fa-3x text-light"></i>
                             <div class="ms-1">
-                                <p class="mb-2 text-light ">Total Anggota</p>
-                                <h6 class="mb-0 text-light fw-bold">{{ auth()->user()->count() - 1 }}</h6>
+                                <p class="mb-2 text-light fw-bold">Total Anggota</p>
+                                <h4 class="mb-0 text-light fw-bold">{{ auth()->user()->count() - 1 }}</h4>
                             </div>
                         </div>
                     </div>
@@ -18,8 +18,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4 dashboard-info" style="background: linear-gradient(135deg, #17ead9 0%, #6078ea 100%); height: 8em">
                             <i class="fa fa-credit-card fa-3x text-light"></i>
                             <div class="ms-2">
-                                <p class="mb-2 text-light ">Total Peminjaman</p>
-                                <h6 class="mb-0 text-light fw-bold">$1234</h6>
+                                <p class="mb-2 text-light fw-bold">Total Peminjaman</p>
+                                <h4 class="mb-0 text-light fw-bold">$100000</h4>
                             </div>
                         </div>
                     </div>

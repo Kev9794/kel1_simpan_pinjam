@@ -19,7 +19,7 @@
                 <div class="col-lg-6">
                   <div class="card-body p-md-5 mx-md-4">
                     <div class="text-center">
-                      <img src="{{ asset('style/assets/img/logo/logok.png') }}"
+                    <img src="{{ asset('style/assets/img/logo/logok.png') }}"
                         style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Koperasi Simpan Pinjam</h4>
                     </div>
@@ -32,7 +32,7 @@
                     @endif
                     @if(session()->has('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('success') }}
+                        {{ session('error') }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       </button>
                     </div>
@@ -55,7 +55,7 @@
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Belum Punya Akun</p>
-                        <a class="btn btn-outline-primary m-3" href="{{ route('register') }}"> Buat Akun</a>
+                        <a class="btn btn-outline-primary m-3" href="/register"> Buat Akun</a>
                         
                       </div>
                     </form>
