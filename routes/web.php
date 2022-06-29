@@ -72,10 +72,23 @@ Route::get('/angsuran', function () {
     return view('admin.angsuran', []);
 });
 
+Route::get('/angsuran/edit', function () {
+    return view('admin.edit-angsuran', []);
+});
+
+
 Route::get('/pengambilan', function () {
     return view('admin.pengambilan', []);
 });
 
+Route::get('/pengambilan/edit', function () {
+    return view('admin.edit-pengambilan', []);
+});
+
 Route::get('/simpanan', function () {
     return view('admin.simpanan', []);
+});
+
+Route::get('/simpanan/edit', function () {
+    return view('admin.edit-simpanan', []);
 });
