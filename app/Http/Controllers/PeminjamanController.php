@@ -47,9 +47,8 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
-        ]);
+        $peminjaman = Peminjaman::where('id_peminjaman', $id)->first();
+        return view('admin.show-peminjaman', ['peminjaman' => $peminjaman]);
     }
 
     /**
@@ -60,9 +59,8 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
-        ]);
+        $peminjaman = Peminjaman::where('id_peminjaman', $id)->first();
+        return view('admin.edit-peminjaman', ['peminjaman' => $peminjaman]);
     }
 
     /**

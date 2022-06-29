@@ -30,10 +30,8 @@
                                     <td>{{ $user->alamat }}</td>
 
                                     <td>
-                                    <a class="btn btn-info" href="/anggota/{{ $user->id }}" data-toggle="modal" 
-                                    data-target="#showModal">Show</a>
-                                    <a class="btn btn-primary" href="/anggota/{{ $user->id }}/edit" data-toggle="modal" 
-                                    data-target="#exampleModal">Edit</a>
+                                    <a class="btn btn-info" href="/anggota/{{ $user->id }}">Show</a>
+                                    <a class="btn btn-primary" href="/anggota/{{ $user->id }}/edit">Edit</a>
                                     <form action="/anggota/{{ $user->id }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf 
@@ -49,29 +47,6 @@
                 </div>
             </div>
         <!-- Table End -->
-        <!-- Show Modal -->
-        <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header d-flex justify-content-center">
-                        <h5 class="modal-title" id="exampleModalLabel"><b>Detail Anggota</b></h5>
-                    </div>
-                    <div class="modal-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>ID Anggota: </b>{{$user->id}}</li>
-                        <li class="list-group-item"><b>Name: </b>{{$user->name}}</li>
-                        <li class="list-group-item"><b>Username: </b>{{$user->username}}</li>
-                        <li class="list-group-item"><b>Email: </b>{{$user->email}}</li> 
-                        <li class="list-group-item"><b>No Telp: </b>{{$user->no_telp}}</li>
-                        <li class="list-group-item"><b>Alamat: </b>{{$user->alamat}}</li> 
-                    </ul> 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Edit Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

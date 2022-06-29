@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peminjaman;
+use App\Models\Pengambilan;
+use App\Models\Simpanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +19,8 @@ class ApplyController extends Controller
     {
         return view('user.apply', 
         [
-            "title" => "apply"
+            "title" => "apply",
+            "menu" => "peminjaman"
         ]);
     }
 
@@ -100,6 +103,46 @@ class ApplyController extends Controller
     }
 
     public function penarikan(){
-        return view('user.penarikan');
+        return view('user.penarikan', 
+        [
+            "title" => "apply",
+            "menu" => "penarikan"
+        ]);
+    }
+
+    public function tarik(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tgl_ambil' => 'required',
+            'saldo' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        Pengambilan::create($validatedData);
+        
+        return redirect('apply')->with('success','Penarikan berhasil diajukan');
+    }
+
+    public function simpanan(){
+        return view('user.simpanan', 
+        [
+            "title" => "apply",
+            "menu" => "simpanan"
+        ]);
+    }
+
+    public function simpan(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tgl_simpan' => 'required',
+            'saldo' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        Simpanan::create($validatedData);
+        
+        return redirect('apply')->with('success','Simpanan berhasil diajukan');
     }
 }

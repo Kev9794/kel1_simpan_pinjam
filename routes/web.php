@@ -49,6 +49,12 @@ Route::get('/services', function () {
 
 Route::resource('apply', ApplyController::class)->middleware('auth');
 
+Route::get('penarikan',[ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
+Route::post('tarik',[ApplyController::class, 'tarik'])->name('tarik')->middleware('auth');
+
+Route::get('simpanan',[ApplyController::class, 'simpanan'])->name('simpanan')->middleware('auth');
+Route::post('simpan',[ApplyController::class, 'simpan'])->name('simpan')->middleware('auth');
+
 Route::get('/contact', function () {
     return view('user.contact', [
         "title" => "contact"
@@ -80,6 +86,8 @@ Route::get('/angsuran/edit', function () {
 Route::get('/pengambilan', function () {
     return view('admin.pengambilan', []);
 });
+
+Route::get('/deposit', function () {
 
 Route::get('/pengambilan/edit', function () {
     return view('admin.edit-pengambilan', []);

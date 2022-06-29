@@ -28,28 +28,28 @@
                         </div>
                         @endif
                         <div class="apply-wrapper">
-                            <p>PEMINJAMAN</p>
+                            <p>SIMPANAN</p>
                             <!-- Form -->
-                            <form method="POST" action="/apply">
+                            <form method="POST" action="{{ route('simpan') }}">
                                 @csrf
                                 <div class="row">
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID SIMPANAN</label>
+                                            <label>* ID PENYIMPAN</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
-                                    <!-- Tanggal Peminjaman -->
+                                    <!-- Tanggal Simpanna -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tanggal SIMPAN</label>
-                                            <input type="date" id="tgl_pinjam" name="tgl_pinjam">
+                                            <label>* Tanggal Simpan</label>
+                                            <input type="date" id="tgl_pinjam" name="tgl_simpan">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* JUmlah</label>
+                                            <label>* Jumlah</label>
                                             <input type="number" id="jumlah" name="jumlah">
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn apply-btn mt-30" type="submit">Ajukan</button>
+                                <button class="btn apply-btn mt-30" type="submit">Simpan</button>
                             </form>
                             <!-- End From -->
                         </div>
