@@ -20,10 +20,6 @@
         <div class="apply-area pt-150 pb-150">
             <div class="container">
                 <div class="row justify-content-center">
-<<<<<<< HEAD
-            
-=======
->>>>>>> 78b6189a02d5818491775bd17722d36289422f80
                     <div class="col-lg-8">
                         @if(session()->has('success'))
                         <div class="alert alert-success alert-dismissible">
@@ -32,11 +28,7 @@
                         </div>
                         @endif
                         <div class="apply-wrapper">
-<<<<<<< HEAD
-                            <p>PEMINJAMAN</p>
-=======
                         <p>PEMINJAMAN</p>
->>>>>>> 78b6189a02d5818491775bd17722d36289422f80
                             <!-- Form -->
                             <form method="POST" action="/apply">
                                 @csrf
