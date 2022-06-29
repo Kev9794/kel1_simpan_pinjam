@@ -28,23 +28,23 @@
                         </div>
                         @endif
                         <div class="apply-wrapper">
-                            <p>SIMPANAN</p>
+                            <p>ANGSURAN</p>
                             <!-- Form -->
-                            <form method="POST" action="{{ route('simpan') }}">
+                            <form method="POST" action="/apply">
                                 @csrf
                                 <div class="row">
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PENYIMPAN</label>
+                                            <label>* ID ANGSURAN</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
-                                    <!-- Tanggal Simpanna -->
+                                    <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tanggal Simpan</label>
-                                            <input type="date" id="tgl_pinjam" name="tgl_simpan">
+                                            <label>* Tanggal Angsuran</label>
+                                            <input type="date" id="tanggalAngsuran" name="tanggalAngsuran">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -55,12 +55,18 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* saldo</label>
-                                            <input type="number" id="" name="">
+                                            <label>* Jumlah Sisa</label>
+                                            <input type="number" id="jmlhSisa" name="jmlhSisa">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-form">
+                                            <label>* Sisa Jangka Waktu</label>
+                                            <input type="date" id="sisJangkaWaktu" name="sisJangkaWaktu">
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn apply-btn mt-30" type="submit">Simpan</button>
+                                <button class="btn apply-btn mt-30" type="submit">TARIK</button>
                             </form>
                             <!-- End From -->
                         </div>

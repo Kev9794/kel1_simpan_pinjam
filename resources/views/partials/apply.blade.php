@@ -24,6 +24,9 @@
             <li class="nav-item {{ ($menu === "penarikan" )? 'active' : '' }}">
                 <a class="nav-link {{ Request::is('/penarikan') ? 'active' : '' }}" href="{{ route('penarikan') }}">Penarikan</a>
             </li>
-            
+            <li class="nav-item">
+                    <a class="nav-link" href="/apply/angsuran">Angsuran</a>
+            </li>
+
         </ul>
     </div>
