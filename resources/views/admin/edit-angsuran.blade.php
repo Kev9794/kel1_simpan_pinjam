@@ -2,7 +2,7 @@
 
 @section('container')
 <form>
-    <h4 class="fw-bolder text-center">Edit Peminjaman</h4>
+    <h4 class="fw-bolder text-center">Edit Angsuran</h4>
     <div class="form-group">
         <label for="tgl_angsur" class="col-form-label">Tanggal Angsur:</label>
         <input type="date" class="form-control" id="tgl_angsur">
