@@ -29,10 +29,6 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('dashmin/css/style.css') }}" rel="stylesheet">
-<<<<<<< HEAD
-
-=======
->>>>>>> 78b6189a02d5818491775bd17722d36289422f80
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
