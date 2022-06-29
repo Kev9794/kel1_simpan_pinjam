@@ -31,21 +31,21 @@
                         <div class="apply-wrapper">
                             <p>PENARIKAN</p>
                             <!-- Form -->
-                            <form method="POST" action="/apply">
+                            <form method="POST" action="{{ route('tarik') }}">
                                 @csrf
                                 <div class="row">
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PENARIKAN</label>
+                                            <label>* ID PENARIK</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
                                     <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tanggal Ambil</label>
-                                            <input type="date" id="tanggalAmbil" name="tanggalAmbil">
+                                            <label>* Tanggal Penarikan</label>
+                                            <input type="date" id="tgl_ambil" name="tgl_ambil">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">

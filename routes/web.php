@@ -46,6 +46,12 @@ Route::get('/services', function () {
 
 Route::resource('apply', ApplyController::class)->middleware('auth');
 
+Route::get('penarikan',[ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
+Route::post('tarik',[ApplyController::class, 'tarik'])->name('tarik')->middleware('auth');
+
+Route::get('simpanan',[ApplyController::class, 'simpanan'])->name('simpanan')->middleware('auth');
+Route::post('simpan',[ApplyController::class, 'simpan'])->name('simpan')->middleware('auth');
+
 Route::get('/contact', function () {
     return view('user.contact', [
         "title" => "contact"
@@ -54,12 +60,6 @@ Route::get('/contact', function () {
 
 Route::resource('account', AccountController::class)->middleware('auth');
 Route::post('change',[AccountController::class, 'change'])->name('change')->middleware('auth');
-
-Route::get('/apply/simpanan', function () {
-    return view('user.simpanan');
-});
-
-Route::get('penarikan',[ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
 
 Route::resource('anggota', AnggotaController::class)->middleware('auth');
 
@@ -73,6 +73,6 @@ Route::get('/pengambilan', function () {
     return view('admin.pengambilan', []);
 });
 
-Route::get('/simpanan', function () {
+Route::get('/deposit', function () {
     return view('admin.simpanan', []);
 });

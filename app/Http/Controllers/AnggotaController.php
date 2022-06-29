@@ -49,9 +49,8 @@ class AnggotaController extends Controller
      */
     public function show($id)
     {
-        return view('', [
-            'users' => User::where('id', $id)->get()
-        ]);
+        $user = User::where('id', $id)->first();
+        return view('admin.show-anggota', ['users' => $user]);
     }
 
     /**
@@ -62,9 +61,8 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        return view('', [
-            'users' => User::where('id', $id)->get()
-        ]);
+        $user = User::where('id', $id)->first();
+        return view('admin.edit-anggota', ['users' => $user]);
     }
 
     /**
