@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengambilan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengambilanController extends Controller
 {
@@ -13,7 +15,8 @@ class PengambilanController extends Controller
      */
     public function index()
     {
-        //
+        $pengambilan = Pengambilan::with('users')->get();
+        return view('admin.pengambilan', ['pengambilan' => $pengambilan]);
     }
 
     /**
@@ -45,7 +48,8 @@ class PengambilanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pengambilan = Pengambilan::where('id_pengambilan', $id)->first();
+        return view('admin.show-pengambilan', ['pengambilan' => $pengambilan]);
     }
 
     /**
@@ -56,7 +60,8 @@ class PengambilanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengambilan = Pengambilan::where('id_pengambilan', $id)->first();
+        return view('admin.show-pengambilan', ['pengambilan' => $pengambilan]);
     }
 
     /**
@@ -68,7 +73,16 @@ class PengambilanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tgl_ambil' => 'required',
+            'saldo' => 'required',
+            'user_id' => 'required',
+        ]);
+        
+        Pengambilan::where('id_pengambilan',$id)->update($validatedData);
+        
+        return redirect('/pengambilan')->with('success','Penarikan berhasil diperbarui');
     }
 
     /**
@@ -79,6 +93,13 @@ class PengambilanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pengambilan::destroy('id_pengambilan',$id);
+        return redirect('/pengambilan')->with('success','Penarikan berhasil dihapus');
+    }
+    public function cetak()
+    {
+        $pengambilan = Pengambilan::with('users')->get();
+        $pdf = PDF::loadview('admin.cetak-pengambilan', ['pengambilan' => $pengambilan]);
+        return $pdf->stream();
     }
 }

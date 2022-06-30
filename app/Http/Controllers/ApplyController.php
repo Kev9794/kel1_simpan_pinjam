@@ -145,4 +145,27 @@ class ApplyController extends Controller
         
         return redirect('apply')->with('success','Simpanan berhasil diajukan');
     }
+
+    public function angsuran(){
+        return view('user.angsuran', 
+        [
+            "title" => "apply",
+            "menu" => "angsuran"
+        ]);
+    }
+
+    public function angsur(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jumlah' => 'required',
+            'tgl_angsur' => 'required',
+            'jumlah_sisa' => 'required',
+            'sisa_tenggat_waktu' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        Simpanan::create($validatedData);
+        
+        return redirect('apply')->with('success','Angsuran berhasil diajukan');
+    }
 }

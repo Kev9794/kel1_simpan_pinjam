@@ -1,80 +1,49 @@
 @extends('layouts.admin')
 
 @section('container')
-<!-- Table Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-12 col-xl-12">
-            <div class="bg-light rounded h-100 p-4">
-                <h5 class="mb-4 fw-bold">Tabel Pengambilan</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">id_pengambilan</th>
-                            <th scope="col">Tanggal Ambil</th>
-                            <th scope="col">Jumlah</th>
-                            <th scope="col">Saldo</th>
-                            <th scope="col">id_anggota</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>15 September 2021</td>
-                            <td>Rp.900.000</td>
-                            <td>Rp.2.500.000</td>
-                            <td>1</td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Table End -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="id_pengambilan" class="col-form-label">Tanggal Ambil:</label>
-                        <input type="date" class="form-control" id="id_pengambilan">
+        <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h4 class="mt-4 mb-4"><b>Tabel Penarikan</b></h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID Penarikan</th>
+                                        <th scope="col">Tanggal Penarikan</th>
+                                        <th scope="col">Nama Penarik</th>
+                                        <th scope="col">Jumlah</th>
+                                        <th scope="col">Saldo</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                @foreach ($pengambilan as $ambil)
+                                <tr>
+                                    <td>{{ $ambil->id_pengambilan }}</td>
+                                    <td>{{ $ambil->tgl_ambil }}</td>
+                                    <td>{{ $ambil->users->name }}</td>
+                                    <td>{{ $ambil->jumlah }}</td>
+                                    <td>{{ $ambil->saldo }}</td>
+                                    <td>
+                                    <a class="btn btn-info" href="/pengambilan/{{ $ambil->id_pengambilan }}">Show</a>
+                                    <a class="btn btn-primary" href="/pengambilan/{{ $ambil->id_pengambilan }}/edit">Edit</a>
+                                    <form action="/pengambilan/{{ $ambil->id_pengambilan }}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf 
+                                        <button class="btn btn-danger" onclick="return confirm('Anda yakin?')">Delete</button>
+                                    </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <a class="btn btn-success" href="{{ route('cetak-pengambilan') }}"><i class="fa fa-print"></i> Cetak Laporan</a> 
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="jumlah" class="col-form-label">Jumlah:</label>
-                        <input type="number" class="form-control" id="jumlah">
-                    </div>
-                    <div class="form-group">
-                        <label for="saldo" class="col-form-label">Saldo:</label>
-                        <input type="number" class="form-control" id="saldo">
-                    </div>
-                    <div class="form-group">
-                        <label for="user_id" class="col-form-label">Id Anggota:</label>
-                        <input type="number" class="form-control" id="user_id">
-                    </div>
-                </form>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
+        <!-- Table End -->
 @endsection

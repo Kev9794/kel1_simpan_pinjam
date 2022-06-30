@@ -42,6 +42,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <a class="btn btn-success" href="{{ route('cetak-anggota') }}"><i class="fa fa-print"></i> Cetak Laporan</a>
                         </div>
                     </div>
                 </div>
