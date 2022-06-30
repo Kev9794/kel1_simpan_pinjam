@@ -17,11 +17,12 @@ use App\Http\Controllers\SimpananController;
 | User Routes
 |--------------------------------------------------------------------------
 */
+
 Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('login', [LoginController::class, 'authenticate']); 
-Route::post('logout', [LoginController::class, 'logout']); 
-Route::resource('register', RegisterController::class)->middleware('guest'); 
-Route::get('dashboard',[DashboardController::class, 'index'])->middleware('auth');
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::post('logout', [LoginController::class, 'logout']);
+Route::resource('register', RegisterController::class)->middleware('guest');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -41,10 +42,12 @@ Route::get('/about', function () {
 });
 
 Route::get('/services', function () {
-    return view('user.services', 
-    [
-        "title" => "services"
-    ]);
+    return view(
+        'user.services',
+        [
+            "title" => "services"
+        ]
+    );
 });
 
 Route::resource('apply', ApplyController::class)->middleware('auth');
@@ -66,7 +69,13 @@ Route::get('/contact', function () {
 });
 
 Route::resource('account', AccountController::class)->middleware('auth');
-Route::post('change',[AccountController::class, 'change'])->name('change')->middleware('auth');
+Route::post('change', [AccountController::class, 'change'])->name('change')->middleware('auth');
+
+Route::get('/apply/simpanan', function () {
+    return view('user.simpanan');
+});
+
+Route::get('penarikan', [ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------

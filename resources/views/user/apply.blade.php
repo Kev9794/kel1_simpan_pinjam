@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+
         <!-- Hero Start-->
         <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
             <div class="container">
@@ -65,6 +66,7 @@
                             </form>
                             <!-- End From -->
                         </div>
+
                         </div>
                     </div>
                 </div>

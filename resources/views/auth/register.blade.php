@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/style.css') }}">
 </head>
+  <style>
+     .button{
+      background: linear-gradient(to right, #5e8fca, #3589F1, #4b75c8);
+     }
+  </style>
 <body>
     <style>
      .button{

@@ -47,7 +47,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="/dashboard" class="navbar-brand mx-4 mb-3">
-                <img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 60%;">
+                    <img src="{{ asset('style/assets/img/logo/logok.png') }}" alt="" style="width: 60%;">
                 </a>
                 <br>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -64,14 +64,14 @@
                     <a href="/peminjaman" class="nav-item nav-link {{ Request::is('peminjaman') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Peminjaman</a>
                     <a href="/cicilan" class="nav-item nav-link {{ Request::is('cicilan') ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tabel Angsuran</a>
                     <form action="/logout" method="POST">
-                    @csrf
+                        @csrf
                         <button type="submit" class="btn nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Logout</a>
                     </form>
                 </div>
             </nav>
         </div>
         <!-- Sidebar End -->
-        
+
         <!-- Content Start -->
         <div class="content">
             @if(session()->has('success'))
@@ -84,8 +84,8 @@
             @endif
             
             @yield('container')
-        <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
@@ -97,8 +97,8 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
