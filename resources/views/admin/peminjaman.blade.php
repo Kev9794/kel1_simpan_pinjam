@@ -40,7 +40,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <button type="button" class="btn btn-success"><i class="fa fa-print"></i> Cetak Laporan</button>  
+                            <a class="btn btn-success" href="{{ route('cetak-peminjaman') }}"><i class="fa fa-print"></i> Cetak Laporan</a>  
                         </div>
                     </div>
                 </div>

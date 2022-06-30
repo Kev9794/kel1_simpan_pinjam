@@ -33,30 +33,29 @@
                             <form method="POST" action="{{ route('tarik') }}">
                                 @csrf
                                 <div class="row">
-                                    <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PENARIK</label>
+                                            <label>ID PENARIK</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
-                                    <!-- Tenggat Waktu Pinjamm -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Tanggal Penarikan</label>
-                                            <input type="date" id="tgl_ambil" name="tgl_ambil">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="single-form">
-                                            <label>* Jumlah</label>
+                                            <label>* JUMLAH PENARIKAN</label>
                                             <input type="number" id="jumlah" name="jumlah">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* Saldo</label>
-                                            <input type="number" id="saldo" name="saldo">
+                                            <label>* TANGGAL PENARIKAN</label>
+                                            <input type="date" id="tgl_ambil" name="tgl_ambil">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-form">
+                                            <label>SALDO</label>
+                                            <input type="number" id="saldo" name="saldo" readonly>
                                         </div>
                                     </div>
                                 </div>
