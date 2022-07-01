@@ -53,12 +53,7 @@
                                             <input type="date" id="tgl_pinjam" name="tgl_simpan">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="single-form">
-                                            <label>SALDO</label>
-                                            <input type="number" id="saldo" name="saldo" readonly>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <button class="btn apply-btn mt-30" type="submit">Simpan</button>
                             </form>

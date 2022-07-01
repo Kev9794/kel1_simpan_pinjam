@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Angsuran;
 use App\Models\Peminjaman;
 use App\Models\Pengambilan;
 use App\Models\Simpanan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+
 
 class ApplyController extends Controller
 {
@@ -20,7 +21,7 @@ class ApplyController extends Controller
         return view('user.apply', 
         [
             "title" => "apply",
-            "menu" => "peminjaman"
+            "menu" => "peminjaman",
         ]);
     }
 
@@ -133,17 +134,21 @@ class ApplyController extends Controller
     }
 
     public function simpan(Request $request)
-    {
-        $validatedData = $request->validate([
+    { 
+        $request->validate([
             'jumlah' => 'required',
             'tgl_simpan' => 'required',
-            'saldo' => 'required',
             'user_id' => 'required',
         ]);
 
-        Simpanan::create($validatedData);
+        $simpanan = new Simpanan;
+        $simpanan->jumlah = $request->get('jumlah');
+        $simpanan->tgl_simpan = $request->get('tgl_simpan');
+        $simpanan->saldo = $request->get('jumlah');
+        $simpanan->user_id = $request->get('user_id');
+        $simpanan->save();
         
-        return redirect('apply')->with('success','Simpanan berhasil diajukan');
+        return redirect('simpanan')->with('success','Simpanan berhasil diajukan');
     }
 
     public function angsuran(){
@@ -156,16 +161,20 @@ class ApplyController extends Controller
 
     public function angsur(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'jumlah' => 'required',
             'tgl_angsur' => 'required',
-            'jumlah_sisa' => 'required',
             'sisa_tenggat_waktu' => 'required',
             'user_id' => 'required',
         ]);
 
-        Simpanan::create($validatedData);
+        $angsuran = new Angsuran;
+        $angsuran->jumlah = $request->get('jumlah');
+        $angsuran->tgl_angsur = $request->get('tgl_angsur');
+        $angsuran->jumlah_sisa = $request->get('jumlah');
+        $angsuran->user_id = $request->get('user_id');
+        $angsuran->save();
         
-        return redirect('apply')->with('success','Angsuran berhasil diajukan');
+        return redirect('angsuran')->with('success','Angsuran berhasil diajukan');
     }
 }

@@ -37,7 +37,7 @@
 
                                 <div class="form-group">
                                     <label for="saldo" class="col-form-label">Saldo:</label>
-                                    <input type="date" class="form-control" id="saldo" name="saldo" value="{{ $simpanan->saldo }}" required>
+                                    <input type="number" class="form-control" id="saldo" name="saldo" value="{{ $simpanan->saldo }}" required>
                                 </div>
                             </div>
                             

@@ -71,12 +71,6 @@ Route::get('/contact', function () {
 Route::resource('account', AccountController::class)->middleware('auth');
 Route::post('change', [AccountController::class, 'change'])->name('change')->middleware('auth');
 
-Route::get('/apply/simpanan', function () {
-    return view('user.simpanan');
-});
-
-Route::get('penarikan', [ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
-
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
