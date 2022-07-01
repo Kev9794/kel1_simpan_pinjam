@@ -34,12 +34,12 @@
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card">
                 <div class="card-body py-5 px-md-5">
-                <form action="/register" method="POST">
+                <form action="/register" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Nama" required>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
@@ -68,7 +68,10 @@
                       <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" required>
                     </div>
 
-    
+                    <div class="mb-4">
+                      <label for="image" class="form-label">Upload Photo Profile</label>
+                      <input class="form-control" type="file" id="image" name="image">
+                    </div>
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4">
                       Sign up

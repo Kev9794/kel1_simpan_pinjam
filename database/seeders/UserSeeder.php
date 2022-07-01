@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        /*
         $users = [
             [
                 'user_id' => 'U0001',
@@ -106,7 +108,15 @@ class UserSeeder extends Seeder
                 'alamat' => 'Lombok',
             ],
         ];
-        
-        \DB::table('user')->insert($users);
+        */
+        DB::table('users')->insert([
+            'id' => '1',
+            'name' => 'Rofika',
+            'username' => 'rofika123',
+            'email' => 'fikaaini50@yahoo.co.id',
+            'password' => bcrypt('123rofika'),
+            'no_telp' => '08123451703',
+            'alamat' => 'Malang'
+        ]);
     }
 }
