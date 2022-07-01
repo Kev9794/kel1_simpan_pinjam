@@ -25,8 +25,10 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('RadityaCatur123'),
                 'no_telp' => '085248146811',
                 'alamat' => 'Batu',
+                'role' => 'Admin',
             ],
             [
+
                 'id' => '2',
                 'username' => 'Maulana17',
                 'email' => 'MaulanaRosandy17@gmail.com',
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('MaulanaRosandy17'),
                 'no_telp' => '085612348907',
                 'alamat' => 'Batu',
+                'role' => 'Admin',
             ],
             [
                 'id' => '3',
@@ -43,8 +46,10 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('KevinNatanael123'),
                 'no_telp' => '085412346758',
                 'alamat' => 'Malang',
+                'role' => 'Admin',
             ],
             [
+
                 'id' => '4',
                 'username' => 'Rofiqoh24',
                 'email' => 'Rofiqoh24@gmail.com',
@@ -52,6 +57,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('Rofiqoh123'),
                 'no_telp' => '085248146811',
                 'alamat' => 'Batu',
+                'role' => 'Admin',
             ],
             [
                 'id' => '5',
@@ -61,6 +67,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('Rofika123'),
                 'no_telp' => '085145678456',
                 'alamat' => 'Malang',
+                'role' => 'Admin',
             ],
             [
                 'user_id' => '6',
@@ -70,6 +77,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('HernandaTriana123'),
                 'no_telp' => '085578965745',
                 'alamat' => 'Surabaya',
+                'role' => null,
             ],
             [
                 'id' => '7',
@@ -79,6 +87,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('CokordaGede123'),
                 'no_telp' => '085687654356',
                 'alamat' => 'Bali',
+                'role' => null,
             ],
             [
                 'id' => '8',
@@ -88,6 +97,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('HardyHermawan123'),
                 'no_telp' => '089721348976',
                 'alamat' => 'Bandung',
+                'role' => null,
             ],
             [
                 'id' => '9',
@@ -97,6 +107,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('SitiLutfia123'),
                 'no_telp' => '089765463729',
                 'alamat' => 'Bogor',
+                'role' => null,
             ],
             [
                 'id' => '10',
@@ -106,6 +117,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('SalvaAlmayda123'),
                 'no_telp' => '087654367893',
                 'alamat' => 'Lombok',
+                'role' => null,
             ],
         ]);
     }
