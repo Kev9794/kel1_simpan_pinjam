@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('no_telp');
             $table->string('alamat');
             $table->string('role')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

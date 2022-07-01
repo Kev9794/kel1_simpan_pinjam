@@ -21,7 +21,11 @@ class RegisterController extends Controller
             'password' => 'required|min:6',
             'no_telp' => 'required',
             'alamat' => 'required',
+            'image' => 'image'
         ]);
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('photo-profiles');
+        }
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);

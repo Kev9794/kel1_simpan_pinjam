@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use App\Rules\MatchOldPassword;
 
 class AccountController extends Controller
@@ -16,7 +17,10 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('user.account');
+        $users = User::where('id',auth()->user()->id)->first();
+        return view('user.account', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -26,7 +30,10 @@ class AccountController extends Controller
      */
     public function create()
     {
-        return view('user.account');
+        $users = User::where('id',auth()->user()->id)->first();
+        return view('user.account', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -79,9 +86,27 @@ class AccountController extends Controller
             'email' => 'required|email:dns|unique:users',
             'no_telp' => 'required',
             'alamat' => 'required',
+            'image' => 'image'
         ]);
-    
-        User::where('id',$id)->update($validatedData);
+        $user = User::where('id',$id)->first();
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('photo-profiles');
+        }
+
+        //$image_name = $request->file('image')->store('photo-profiles');
+        
+        $user->name = $request->get('name');
+        $user->username = $request->get('username');
+        $user->email = $request->get('email');
+        $user->no_telp = $request->get('no_telp');
+        $user->alamat = $request->get('alamat');
+        //$user->image = $image_name;
+        $user->save();
+
+        //User::where('id',$id)->update($validatedData);
         
         return redirect('/account')->with('success','Akun berhasil diperbarui');
     }
@@ -94,7 +119,12 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::where('id',$id)->first();
+        if($user->image){
+            Storage::delete($user->image);
+        }
+        User::destroy($user->id);
+        return redirect('/home')->with('success','Akun berhasil dihapus');
     }
 
     public function change(Request $request)

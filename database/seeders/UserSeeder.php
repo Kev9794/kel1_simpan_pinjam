@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,119 +15,110 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        
+        DB::table('users')->insert([
             [
-                'id' => '10001',
-                'name' => 'Raditya Catur Narendra',
+                'id' => '1',
                 'username' => 'Raditya22',
                 'email' => 'RadityaCatur22@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'RadityaCatur123',
+                'nama' => 'Raditya Catur Narendra',
+                'password' => bcrypt('RadityaCatur123'),
                 'no_telp' => '085248146811',
                 'alamat' => 'Batu',
                 'role' => 'Admin',
             ],
             [
-                'id' => '10002',
-                'name' => 'Maulana Rosandy',
+
+                'id' => '2',
                 'username' => 'Maulana17',
                 'email' => 'MaulanaRosandy17@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'MaulanaRosandy17',
+                'nama' => 'Maulana Rosandy',
+                'password' => bcrypt('MaulanaRosandy17'),
                 'no_telp' => '085612348907',
                 'alamat' => 'Batu',
                 'role' => 'Admin',
             ],
             [
-                'id' => '10003',
-                'name' => 'Kevin Natanael',
+                'id' => '3',
                 'username' => 'Kevin15',
                 'email' => 'KevinNatanael15@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'KevinNatanael123',
+                'nama' => 'Kevin Natanael',
+                'password' => bcrypt('KevinNatanael123'),
                 'no_telp' => '085412346758',
                 'alamat' => 'Malang',
                 'role' => 'Admin',
             ],
             [
-                'id' => '10004',
-                'name' => 'Rofiqoh',
+
+                'id' => '4',
                 'username' => 'Rofiqoh24',
                 'email' => 'Rofiqoh24@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'Rofiqoh123',
+                'nama' => 'Rofiqoh',
+                'password' => bcrypt('Rofiqoh123'),
                 'no_telp' => '085248146811',
                 'alamat' => 'Batu',
                 'role' => 'Admin',
             ],
             [
-                'id' => '10005',
-                'name' => 'Rofika',
+                'id' => '5',
                 'username' => 'Rofika23',
                 'email' => 'Rofika23@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'Rofika123',
+                'nama' => 'Rofika',
+                'password' => bcrypt('Rofika123'),
                 'no_telp' => '085145678456',
                 'alamat' => 'Malang',
                 'role' => 'Admin',
             ],
             [
-                'id' => '10006',
-                'name' => 'Hernanda Triana',
+                'user_id' => '6',
                 'username' => 'Hernanda11',
                 'email' => 'HernandaTriana11@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'HernandaTriana123',
+                'nama' => 'Hernanda Triana',
+                'password' => bcrypt('HernandaTriana123'),
                 'no_telp' => '085578965745',
                 'alamat' => 'Surabaya',
                 'role' => null,
             ],
             [
-                'id' => '10007',
-                'name' => 'Cokorda Gede',
+                'id' => '7',
                 'username' => 'Cokorda07',
                 'email' => 'CokordaGede07@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'CokordaGede123',
+                'nama' => 'Cokorda Gede',
+                'password' => bcrypt('CokordaGede123'),
                 'no_telp' => '085687654356',
                 'alamat' => 'Bali',
                 'role' => null,
             ],
             [
-                'id' => '10008',
-                'name' => 'Hardy Hermawan',
+                'id' => '8',
                 'username' => 'Hardy12',
                 'email' => 'HardyHermawan12@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'HardyHermawan123',
+                'nama' => 'Hardy Hermawan',
+                'password' => bcrypt('HardyHermawan123'),
                 'no_telp' => '089721348976',
                 'alamat' => 'Bandung',
                 'role' => null,
             ],
             [
-                'id' => '10009',
-                'name' => 'Siti Lutfia',
+                'id' => '9',
                 'username' => 'Siti31',
                 'email' => 'SitiLutfia31@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'SitiLutfia123',
+                'nama' => 'Siti Lutfia',
+                'password' => bcrypt('SitiLutfia123'),
                 'no_telp' => '089765463729',
                 'alamat' => 'Bogor',
                 'role' => null,
             ],
             [
-                'id' => '10010',
-                'name' => 'Salva Almayda',
+                'id' => '10',
                 'username' => 'Salva32',
                 'email' => 'SalvaAlmayda32@gmail.com',
-                'email_verified_at' => null,
-                'password' => 'SalvaAlmayda123',
+                'nama' => 'Salva Almayda',
+                'password' => bcrypt('SalvaAlmayda123'),
                 'no_telp' => '087654367893',
                 'alamat' => 'Lombok',
                 'role' => null,
             ],
-        ];
-        
-        \DB::table('users')->insert($users);
+        ]);
     }
 }
