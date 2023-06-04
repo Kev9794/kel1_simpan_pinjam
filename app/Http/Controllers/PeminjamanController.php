@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peminjaman;
-use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PeminjamanController extends Controller
 {
@@ -47,9 +47,8 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
-        ]);
+        $peminjaman = Peminjaman::where('id_peminjaman', $id)->first();
+        return view('admin.show-peminjaman', ['peminjaman' => $peminjaman]);
     }
 
     /**
@@ -60,9 +59,8 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        return view('', [
-            'peminjaman' => Peminjaman::where('id_peminjaman', $id)->get()
-        ]);
+        $peminjaman = Peminjaman::where('id_peminjaman', $id)->first();
+        return view('admin.edit-peminjaman', ['peminjaman' => $peminjaman]);
     }
 
     /**
@@ -96,5 +94,11 @@ class PeminjamanController extends Controller
     {
         Peminjaman::destroy('id_peminjaman',$id);
         return redirect('/peminjaman')->with('success','Peminjaman berhasil dihapus');
+    }
+    public function cetak()
+    {
+        $peminjaman = Peminjaman::with('users')->get();
+        $pdf = PDF::loadview('admin.cetak-peminjaman', ['peminjaman' => $peminjaman]);
+        return $pdf->stream();
     }
 }

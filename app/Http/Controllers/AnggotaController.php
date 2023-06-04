@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AnggotaController extends Controller
 {
@@ -49,9 +50,8 @@ class AnggotaController extends Controller
      */
     public function show($id)
     {
-        return view('', [
-            'users' => User::where('id', $id)->get()
-        ]);
+        $user = User::where('id', $id)->first();
+        return view('admin.show-anggota', ['users' => $user]);
     }
 
     /**
@@ -62,9 +62,8 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        return view('', [
-            'users' => User::where('id', $id)->get()
-        ]);
+        $user = User::where('id', $id)->first();
+        return view('admin.edit-anggota', ['users' => $user]);
     }
 
     /**
@@ -101,5 +100,11 @@ class AnggotaController extends Controller
     {
         User::destroy('id',$id);
         return redirect('/anggota')->with('success','Anggota berhasil dihapus');
+    }
+    public function cetak()
+    {
+        $users = User::whereNull('role')->get();
+        $pdf = PDF::loadview('admin.cetak-anggota', ['users' => $users]);
+        return $pdf->stream();
     }
 }

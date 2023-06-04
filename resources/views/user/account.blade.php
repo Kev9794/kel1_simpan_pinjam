@@ -67,15 +67,20 @@
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="account-general">
                         <h4 class="font-weight-bold py-3 mb-0 ml-3">Kelola Akun</h4>
-                        <form method="post" action="/account/{{ auth()->user()->id }}">
-                        @method('PUT')    
+                        <form method="post" action="{{ route('account.update', $users->id) }}" enctype="multipart/form-data">
+                        @method('put')    
                         @csrf
                             <div class="card-body media align-items-center">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="" class="d-block ui-w-80">
+                                <input type="hidden" name="oldImage" value="{{ $users->image }}">
+                                @if($users->image)
+                                    <img src="{{ asset('storage/'.$users->image)}}" alt="" class="d-block ui-w-80">
+                                @else
+                                    <img alt="" class="d-block ui-w-80">
+                                @endif
                                 <div class="media-body ml-4">
                                 <label class="btn btn-outline-primary">
                                     Upload Photo
-                                    <input type="file" class="account-settings-fileinput">
+                                    <input class="account-settings-fileinput" type="file" id="image" name="image">
                                 </label> &nbsp;
                                 <div class="text-light small mt-1">JPG or PNG</div>
                                 </div>
@@ -117,10 +122,11 @@
         </div>
             <div class="text-right mt-3">
                 <button type="submit" class="btn btn-primary">Save Changes</button>&nbsp;
+                </form>
                 <a class="btn btn-outline-secondary" href="/account">Cancel</a>
             </div>
         </div>
-        </form>
+        
 
         <div class="container light-style flex-grow-1 container-p-y pt-3">
             @if(session()->has('message'))

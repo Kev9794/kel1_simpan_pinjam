@@ -8,10 +8,13 @@ use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AngsuranController;
+use App\Http\Controllers\PengambilanController;
+use App\Http\Controllers\SimpananController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| User Routes
 |--------------------------------------------------------------------------
 */
 
@@ -49,6 +52,16 @@ Route::get('/services', function () {
 
 Route::resource('apply', ApplyController::class)->middleware('auth');
 
+
+Route::get('simpanan',[ApplyController::class, 'simpanan'])->name('simpanan')->middleware('auth');
+Route::post('simpan',[ApplyController::class, 'simpan'])->name('simpan')->middleware('auth');
+
+Route::get('penarikan',[ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
+Route::post('tarik',[ApplyController::class, 'tarik'])->name('tarik')->middleware('auth');
+
+Route::get('angsuran',[ApplyController::class, 'angsuran'])->name('angsuran')->middleware('auth');
+Route::post('angsur',[ApplyController::class, 'angsur'])->name('angsur')->middleware('auth');
+
 Route::get('/contact', function () {
     return view('user.contact', [
         "title" => "contact"
@@ -58,37 +71,22 @@ Route::get('/contact', function () {
 Route::resource('account', AccountController::class)->middleware('auth');
 Route::post('change', [AccountController::class, 'change'])->name('change')->middleware('auth');
 
-Route::get('/apply/simpanan', function () {
-    return view('user.simpanan');
-});
-
-Route::get('penarikan', [ApplyController::class, 'penarikan'])->name('penarikan')->middleware('auth');
-
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
 Route::resource('anggota', AnggotaController::class)->middleware('auth');
+Route::get('cetak-anggota', [AnggotaController::class, 'cetak'])->name('cetak-anggota')->middleware('auth');
+
+Route::resource('deposit', SimpananController::class)->middleware('auth');
+Route::get('cetak-simpanan', [SimpananController::class, 'cetak'])->name('cetak-simpanan')->middleware('auth');
+
+Route::resource('pengambilan', PengambilanController::class)->middleware('auth');
+Route::get('cetak-pengambilan', [PengambilanController::class, 'cetak'])->name('cetak-pengambilan')->middleware('auth');
 
 Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
+Route::get('cetak-peminjaman', [PeminjamanController::class, 'cetak'])->name('cetak-peminjaman')->middleware('auth');
 
-Route::get('/angsuran', function () {
-    return view('admin.angsuran', []);
-});
-
-Route::get('/angsuran/edit', function () {
-    return view('admin.edit-angsuran', []);
-});
-
-
-Route::get('/pengambilan', function () {
-    return view('admin.pengambilan', []);
-});
-
-Route::get('/pengambilan/edit', function () {
-    return view('admin.edit-pengambilan', []);
-});
-
-Route::get('/simpanan', function () {
-    return view('admin.simpanan', []);
-});
-
-Route::get('/simpanan/edit', function () {
-    return view('admin.edit-simpanan', []);
-});
+Route::resource('cicilan', AngsuranController::class)->middleware('auth');
+Route::get('cetak-angsuran', [AngsuranController::class, 'cetak'])->name('cetak-angsuran')->middleware('auth');

@@ -36,7 +36,7 @@
                                     <!-- ID Peminjam -->
                                     <div class="col-lg-6">
                                         <div class="single-form">
-                                            <label>* ID PEMINJAM</label>
+                                            <label>ID PEMINJAM</label>
                                             <input type="text" id="user_id" name="user_id" value="{{ auth()->user()->id }}" readonly>
                                         </div>
                                     </div>
